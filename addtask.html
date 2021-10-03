@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+    <link rel="stylesheet" href="./css/addTask.css">
+    <script src="./js/includeHTML.js"></script>
+    <script src="./js/addTask.js"></script>
+</head>
+
+<body onload="includeHTML(); loadAllTasks()">
+
+    <div w3-include-html="header.html"></div>
+    <div class="main-coniatiner">
+        <div class="header-task">
+            <h2>Add Task</h2>
+            <p>Description</p>
+        </div>
+
+        <div class="new-task-container">
+
+            <div class="title-category-description">
+
+                <form onsubmit="addTask()">
+                    <div class="titel">
+                        <h3>TITEL</h3>
+                    </div>
+                    <input required id="titel" class="regular-input" type="text" placeholder="Please fill in...">
+
+                    <div class="category">
+                        <h3>CATEGORY</h3>
+                    </div>
+
+                    <select required id="category" class="regular-select" type="text">
+                    <option value disabled selected>Please choose an category</option>
+                    <option>Management</option>
+                    <option>Marketing</option>
+                    <option>Product</option>
+                    <option>Sale</option>
+                    </select>
+
+                    <div class="description">
+                        <h3>DESCRIPTION</h3>
+                    </div>
+                    <textarea required class="description-input" name="" id="description" cols="30" rows="10" placeholder="... now you can descripe what do you have to do..."></textarea>
+                </form>
+            </div>
+
+            <div class="date-priority-created-btns">
+                <form onsubmit="addTask()">
+                    <div class="date">
+                        <h3>DATE</h3>
+                    </div>
+                    <input required id="date" class="regular-input" type="date">
+
+
+                    <div class="urgency">
+                        <h3>URGENCY</h3>
+                    </div>
+                    <select required id="urgency" class="regular-select" type="text">
+                    <option value disabled selected>Please choose an urgency</option>
+                    <option>LOW</option>
+                    <option>MIDDLE</option>
+                    <option>HIGH</option>
+                    </select>
+
+
+                    <div class="assignet-to">
+                        <h3>ASSIGNET TO</h3>
+                        <div class="assignet-to-content">
+                            <div class="imgcyrcle"></div>
+                            <img class="icon-plus" src="./assets/img/icons8-plus.png"> </div>
+                    </div>
+
+
+                    <div class="button-div">
+                        <a class="cancel-btn" href="#">CANCEL</a>
+                        <button>CREATE TASK</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    </form>
+</body>
+
+</html>
