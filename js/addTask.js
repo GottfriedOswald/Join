@@ -1,6 +1,6 @@
 // Leeres Array
 let allTasks = [];
-setURL('http://gruppe-107.developerakademie.com/smallest_backend_ever');
+setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
 
 
 async function init() {
