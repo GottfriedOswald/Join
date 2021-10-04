@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    /* --bg1: #1E3190; */
+    --bg1: rgba(28, 45, 146, 0.75);
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.side-vertical-navbar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 250px;
+    background-color: var(--bg1);
+    justify-content: space-around;
+    align-items: center;
+}
+
+.links a {
+    color: blanchedalmond;
+    font-size: 2rem;
+    text-decoration: none;
+}

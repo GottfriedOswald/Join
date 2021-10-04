@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 .main-coniatiner {
     display: flex;
     flex-direction: column;
@@ -26,6 +29,9 @@
     width: 700px;
     display: flex;
     justify-content: space-evenly;
+    left: 250px;
+    right: 0;
+    align-items: center;
 }
 
 .title-category-description {
