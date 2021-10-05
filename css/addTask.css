@@ -1,11 +1,12 @@
 * {
     box-sizing: border-box;
+    font-family: 'PT Sans', sans-serif;
 }
 
 .main-coniatiner {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .header-task {
@@ -15,15 +16,15 @@
     margin-top: 100px;
     font-family: 'PT Sans', sans-serif;
     width: 58%;
+    margin-right: 150px;
 }
 
 .header-task p {
     margin-top: 0px;
-    color: darkblue;
+    color: rgba(28, 45, 146, 0.75);
 }
 
 .new-task-container {
-    margin-left: 50px;
     border-radius: 5px;
     background-color: rgba(211, 211, 211, 0.5);
     height: 500px;
@@ -31,22 +32,34 @@
     display: flex;
     justify-content: space-evenly;
     left: 250px;
-    right: 0;
     align-items: center;
+    margin-right: 250px;
 }
 
 .title-category-description {
-    color: darkblue;
+    color: rgba(28, 45, 146, 0.75);
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
     min-width: 250px;
+    height: 420px;
+}
+
+.title-category-description h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .date-priority-created-btns {
-    color: darkblue;
+    color: rgba(28, 45, 146, 0.75);
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
     min-width: 250px;
+    height: 420px;
+}
+
+.date-priority-created-btns h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .button-div {
@@ -61,7 +74,7 @@
 }
 
 .addtask-btn {
-    background-color: darkblue;
+    background-color: rgba(28, 45, 146, 0.75);
     border: none;
     border-radius: 5px;
     color: white;
@@ -69,11 +82,16 @@
 }
 
 .addtask-btn:hover {
-    background-color: rgba(0, 0, 139, 0.678);
+    background-color: rgba(0, 0, 139, 0.37);
+    color: black;
 }
 
 .cancel-btn {
-    color: darkblue;
+    color: rgba(0, 0, 139, 0.37);
+}
+
+.cancel-btn:hover {
+    color: rgba(0, 0, 0, 0.75);
 }
 
 .regular-input {
@@ -87,7 +105,7 @@
 
 .regular-select {
     height: 40px;
-    width: 107%;
+    width: 100%;
     border-radius: 5px;
     padding: 8px;
     border: 1px solid lightgray;
@@ -118,12 +136,40 @@
 }
 
 .icon-plus {
-    height: 40px;
+    height: 20px;
     cursor: pointer;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .icon-plus:hover {
-    height: 45px;
-    object-fit: contain;
+    height: 25px;
+    object-fit: cover;
+}
+
+
+/* @media screen and (max-width: 1250px) {
+    .new-task-container {
+        margin-right: 250px !important;
+    }
+} */
+
+@media screen and (min-width: 1017px) {
+    .new-task-container {
+        margin-right: 110px !important;
+    }
+}
+
+@media screen and (max-width: 1064px) {
+    .new-task-container {
+        height: 850px !important;
+        width: 550px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-bottom: 50px;
+        margin-right: 150px !important;
+    }
+    .button-div {
+        margin-top: 20px !important;
+    }
 }
