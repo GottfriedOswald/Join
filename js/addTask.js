@@ -65,8 +65,10 @@ function showUsers() {
         <div>
         <div class="user">
         <img class="imgcyrcle" src="img/user/${user['image']}" id="${user['id']}">
+        <div class="user-content">
         <span>${user['name']}</span>
         <img class="icon-plus" src="./assets/img/icons8-plus.png"> 
+        </div>
         </div>
         </div>`;
     }

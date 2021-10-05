@@ -139,12 +139,21 @@
 .imgcyrcle {
     height: 50px;
     width: 50px;
+    object-fit: cover;
     border-radius: 100%;
     background-color: white;
 }
 
+.user-content {
+    margin-left: 10px;
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .icon-plus {
-    height: 10px;
+    height: 15px;
     cursor: pointer;
     object-fit: cover;
 }
