@@ -124,26 +124,33 @@
 
 .assignet-to-content {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+.user {
+    display: flex;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .imgcyrcle {
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     border-radius: 100%;
     background-color: white;
 }
 
 .icon-plus {
-    height: 20px;
+    height: 10px;
     cursor: pointer;
     object-fit: cover;
 }
 
 .icon-plus:hover {
-    height: 25px;
+    height: 15px;
     object-fit: cover;
 }
 
