@@ -1,3 +1,6 @@
+allTasks = [];
+
+
 function init() {
     includeHTML();
     loadFromBackend();
@@ -12,23 +15,25 @@ async function loadFromBackend() {
 }
 
 function showAllTasks() {
+    let taskRow = document.getElementById('task-row');
+
     for (let i = 0; i < allTasks.length; i++) {
-        document.getElementById('table').innerHTML += `
-    <tbody>
-    <tr class="table-row">
+        taskRow.innerHTML += `
+
+    <tr class="table-row" id="${allTasks[i]['id']}" >
         <td class="table-profil">
             <div class="profil-content">
                 <img id="profile-img" class="profil-img" src="">
                 <div class="profil-name-email">
-                    <div id="profil-name" class="profil-name">${allTasks['titel']}</div>
+                    <div id="profil-name" class="profil-name">Guest</div>
                     <a id="profil-email" href="#">test@guest.de</a>
                 </div>
             </div>
         </td>
-        <td>Managment</td>
-        <td>info</td>
+        <td>${allTasks[i]['category']}</td>
+        <td>${allTasks[i]['description']}</td>
     </tr>
-</tbody>
+
     `;
     }
 }
