@@ -25,10 +25,15 @@ users = [{
 ];
 
 async function init() {
+    includeHTML();
+    showUsers();
+    await loadFromBackend();
+}
+
+async function loadFromBackend() {
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem('allTasks')) || [];
     console.log('Loaded from backend allTasks', allTasks);
-    showUsers();
 }
 
 function addTask() {
@@ -38,8 +43,8 @@ function addTask() {
     let date = document.getElementById('date').value;
     let urgency = document.getElementById('urgency').value;
 
-    // let status ='todo';
-    // let id = Math.round(Math.random() * 10000);
+    let status = 'todo';
+    let id = Math.round(Math.random() * 10000);
 
     let task = {
         'id': id,
@@ -47,12 +52,27 @@ function addTask() {
         'category': category,
         'description': description,
         'createdAt': date,
-        'urgency': urgency
+        'urgency': urgency,
+        'status': status,
     }
 
-    allTasks.push(task);
-    backend.setItem('allTasks', JSON.stringify(allTasks));
+    allTasks.push(task); //push new task to Array allTasks
+    saveToBackend();
+    clearInputfields();
 
+}
+
+function clearInputfields() {
+    document.getElementById('titel').value = '';
+    document.getElementById('category').value = '';
+    document.getElementById('description').value = '';
+    document.getElementById('date').value = '';
+    document.getElementById('urgency').value = '';
+}
+
+async function saveToBackend() {
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    console.log('saved to backend');
 }
 
 function showUsers() {
