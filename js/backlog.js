@@ -4,14 +4,13 @@ allTasks = [];
 function init() {
     includeHTML();
     loadFromBackend();
-    showAllTasks();
-
 }
 
 async function loadFromBackend() {
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem('allTasks')) || [];
     console.log('Loaded from backend allTasks', allTasks);
+    showAllTasks();
 }
 
 function showAllTasks() {

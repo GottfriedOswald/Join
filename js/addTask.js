@@ -23,7 +23,6 @@ users = [{
         'name': 'Guest'
     },
 ];
-let id;
 
 async function init() {
     includeHTML();
@@ -47,6 +46,7 @@ function addTask(event) {
     let urgency = document.getElementById('urgency').value;
 
     let status = 'todo';
+    let id = Math.round(Math.random() * 10000);
 
     let task = {
         'id': id,
