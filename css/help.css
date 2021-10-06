@@ -1,7 +1,18 @@
 .main-container {
     margin-top: 50px;
+    margin-bottom: 50px;
     margin-left: 280px;
-    width: 600px;
+    width: 60%;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(211, 211, 211, 0.5);
+    ;
+}
+
+.main-container h1 {
+    background-color: rgba(28, 46, 146, 0.418);
+    border-radius: 10px;
+    padding: 5px;
 }
 
 .contact {
