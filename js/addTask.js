@@ -36,7 +36,9 @@ async function loadFromBackend() {
     console.log('Loaded from backend allTasks', allTasks);
 }
 
-function addTask() {
+function addTask(event) {
+    event.preventDefault();
+
     let titel = document.getElementById('titel').value;
     let category = document.getElementById('category').value;
     let description = document.getElementById('description').value;
