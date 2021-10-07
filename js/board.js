@@ -1,32 +1,5 @@
-// JSON Todo ist noch hardgecodet
-// let todos = [{
-//     'id':'0',
-//     'title':'termin machen',
-//     'category':'todo'
-// },
-// {
-//     'id':'1',
-//     'title':'Auto waschen',
-//     'category':'todo'
-// },
-// {
-//     'id':'2',
-//     'title':'Kanban Board erstellen',
-//     'category':'in-progress'
-// },
-// {
-//     'id':'3',
-//     'title':'promovieren',
-//     'category':'in-examination'
-// },
-// {
-//     'id':'4',
-//     'title':'Rechnung zahlen',
-//     'category':'done'
-// }];
 
 let allTasks = [];
-// let todos = [];
 
 function setID(){
     for (let i = 0; i < allTasks.length; i++) {
