@@ -163,29 +163,10 @@
     margin-right: 15px;
 }
 
-.assign-to-minus {
-    height: 40px;
-    width: 40px;
-    border-radius: 100%;
-    background-color: rgba(0, 0, 139, 0.37);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 35px;
-}
-
-.assign-to-minus:hover {
-    height: 50px;
-    width: 50px;
-    font-size: 45px;
-}
-
 .assign-to-plus {
-    height: 40px;
-    width: 40px;
-    border-radius: 100%;
+    height: 30px;
+    width: 70px;
+    border-radius: 10%;
     background-color: white;
     display: flex;
     align-items: center;
@@ -194,17 +175,11 @@
     font-size: 35px;
 }
 
-.assign-to-plus:hover {
-    height: 50px;
-    width: 50px;
-    font-size: 45px;
+.assign-to-plus-activated {
+    color: rgb(0, 0, 0);
 }
 
 .assign-to-plus.selectedPlus:hover {
-    background-color: var(--main-color);
-}
-
-.selectedPlus {
     background-color: var(--main-color);
 }
 

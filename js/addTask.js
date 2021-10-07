@@ -94,7 +94,8 @@ function showUsers() {
         <div class="user-name">${user['name']}</div>
         </div>
         <div class="assign-to-plus" id="${i}" onclick="assignToTask(${i})">
-        <i id="assign-icon${i}" class="assign-to-minus"></i></div> 
+
+        <i id="assign-icon${i}">+</i></div> 
         </div>
         </div>`;
     }
@@ -104,15 +105,15 @@ let userAssignToTask = [];
 
 function assignToTask(i) {
     if (userAssignToTask.includes(i)) {
-        document.getElementById(i).classList.remove('selectedPlus');
-        document.getElementById('assign-icon' + i).classList.remove('assign-to-minus');
+        document.getElementById(i).classList.remove('assign-to-plus-activated');
+        document.getElementById('assign-icon' + i).classList.remove('assign-to-plus-activated');
         let indexAssignUser = assignUser.indexOf(assignUser[i]);
         assignUser.splice(indexAssignUser, 1);
         let index = userAssignToTask.indexOf(i);
         userAssignToTask.splice(index, 1);
     } else {
-        document.getElementById(i).classList.add('selectedPlus');
-        document.getElementById('assign-icon' + i).classList.add('assign-to-minus');
+        document.getElementById(i).classList.add('assign-to-plus-activated');
+        document.getElementById('assign-icon' + i).classList.add('assign-to-plus-activated');
         assignUser.push(users[i]);
         userAssignToTask.push(i);
     }
