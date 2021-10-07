@@ -29,28 +29,28 @@
 
 <body onload="init()">
 
-<div w3-include-html="templates/navbar.html"></div>
-<div class="main-coniatiner">
-    <div class="header-task">
-        <h2>Add Task</h2>
-        <p>Description</p>
-    </div>
+    <div w3-include-html="templates/navbar.html"></div>
+    <div class="main-coniatiner">
+        <div class="header-task">
+            <h2>Add Task</h2>
+            <p>Description</p>
+        </div>
 
-    <div class="new-task-container">
+        <div class="new-task-container">
 
-        <div class="title-category-description">
+            <div class="title-category-description">
 
-            <form onsubmit="addTask()">
-                <div class="titel">
-                    <h3>TITEL</h3>
-                </div>
-                <input required id="titel" class="regular-input" type="text" placeholder="Please fill in">
+                <form onsubmit="addTask()">
+                    <div class="titel">
+                        <h3>TITEL</h3>
+                    </div>
+                    <input required id="titel" class="regular-input" type="text" placeholder="Please fill in">
 
-                <div class="category">
-                    <h3>CATEGORY</h3>
-                </div>
+                    <div class="category">
+                        <h3>CATEGORY</h3>
+                    </div>
 
-                <select required id="category" class="regular-select" type="text">
+                    <select required id="category" class="regular-select" type="text">
                     <option value disabled selected>Please choose an category</option>
                     <option>Management</option>
                     <option>Marketing</option>
@@ -58,25 +58,25 @@
                     <option>Sale</option>
                     </select>
 
-                <div class="description">
-                    <h3>DESCRIPTION</h3>
-                </div>
-                <textarea required class="description-input" name="" id="description" cols="30" rows="10" placeholder="Please fill in"></textarea>
-            </form>
-        </div>
+                    <div class="description">
+                        <h3>DESCRIPTION</h3>
+                    </div>
+                    <textarea required class="description-input" name="" id="description" cols="30" rows="10" placeholder="Please fill in"></textarea>
+                </form>
+            </div>
 
-        <div class="date-priority-created-btns">
-            <form action="" onsubmit="addTask(event)">
-                <div class="date">
-                    <h3>DATE</h3>
-                </div>
-                <input required id="date" class="regular-input" type="date">
+            <div class="date-priority-created-btns">
+                <form action="" onsubmit="addTask(event)">
+                    <div class="date">
+                        <h3>DATE</h3>
+                    </div>
+                    <input required id="date" class="regular-input" type="date">
 
 
-                <div class="urgency">
-                    <h3>URGENCY</h3>
-                </div>
-                <select required id="urgency" class="regular-select" type="text">
+                    <div class="urgency">
+                        <h3>URGENCY</h3>
+                    </div>
+                    <select required id="urgency" class="regular-select" type="text">
                     <option value disabled selected>Please choose an urgency</option>
                     <option>LOW</option>
                     <option>MIDDLE</option>
@@ -84,25 +84,25 @@
                     </select>
 
 
-                <div class="assignet-to">
-                    <h3>ASSIGNET TO</h3>
-                    <div class="assignet-to-content" id="assignet-to-content">
-                        <div><img class="imgcyrcle" src="img/user/guest.png" id="user-img"></div>
-                        <img class="icon-plus" src="./assets/img/icon plus.png"> </div>
-                </div>
+                    <div class="assignet-to">
+                        <h3>ASSIGNET TO</h3>
+                        <div class="assignet-to-content" id="assignet-to-content">
+                            <div><img class="imgcyrcle" src="img/user/guest.png" id="user-img"></div>
+                        </div>
+                    </div>
 
 
-                <div class="button-div">
-                    <a class="cancel-btn" href="#" onclick="clearInputfields()">CANCEL</a>
-                    <button class="addtask-btn">CREATE TASK</button>
-                </div>
-            </form>
+                    <div class="button-div">
+                        <a class="cancel-btn" href="#" onclick="clearInputfields()">CANCEL</a>
+                        <button class="addtask-btn">CREATE TASK</button>
+                    </div>
+                </form>
+            </div>
+
         </div>
 
     </div>
-
-</div>
-</form>
+    </form>
 </body>
 
 </html>

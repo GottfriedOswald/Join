@@ -129,6 +129,12 @@
     margin-top: 10px;
 }
 
+.user-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
 .user {
     display: flex;
     align-items: center;
@@ -142,6 +148,7 @@
     object-fit: cover;
     border-radius: 100%;
     background-color: white;
+    margin-right: 15px;
 }
 
 .user-content {
@@ -152,15 +159,53 @@
     align-items: center;
 }
 
-.icon-plus {
-    height: 15px;
-    cursor: pointer;
-    object-fit: cover;
+.user-name {
+    margin-right: 15px;
 }
 
-.icon-plus:hover {
-    height: 15px;
-    object-fit: cover;
+.assign-to-minus {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 139, 0.37);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 35px;
+}
+
+.assign-to-minus:hover {
+    height: 50px;
+    width: 50px;
+    font-size: 45px;
+}
+
+.assign-to-plus {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 35px;
+}
+
+.assign-to-plus:hover {
+    height: 50px;
+    width: 50px;
+    font-size: 45px;
+}
+
+.assign-to-plus.selectedPlus:hover {
+    background-color: var(--main-color);
+}
+
+.selectedPlus {
+    background-color: var(--main-color);
 }
 
 @media screen and (max-width: 1250px) {

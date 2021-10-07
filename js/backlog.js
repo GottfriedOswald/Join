@@ -24,7 +24,7 @@ function showAllTasks() {
             <div class="profil-content">
                 <img id="profile-img" class="profil-img" src="">
                 <div class="profil-name-email">
-                    <div id="profil-name" class="profil-name">Guest</div>
+                    <div id="profil-name" class="profil-name">${allTasks[i]['user']}</div>
                     <a id="profil-email" href="#">test@guest.de</a>
                 </div>
             </div>

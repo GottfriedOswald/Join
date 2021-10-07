@@ -1,16 +1,18 @@
-// Leeres Array
+// Leere Arrays
 let allTasks = [];
+let assignUser = [];
+
 setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
 
 users = [{
         'id': 0,
         'image': 'GottfriedOswald.jpg',
-        'name': 'Gottfried O.'
+        'name': 'Gottfried'
     },
     {
         'id': 1,
         'image': 'michelleH.jpg',
-        'name': 'Michelle H.'
+        'name': 'Michelle'
     },
     {
         'id': 2,
@@ -56,6 +58,7 @@ function addTask(event) {
         'createdAt': date,
         'urgency': urgency,
         'status': status,
+        'user': assignUser
     }
 
     allTasks.push(task); //push new task to Array allTasks
@@ -84,14 +87,34 @@ function showUsers() {
         let user = users[i];
 
         document.getElementById('assignet-to-content').innerHTML += `
-        <div>
+        <div class="user-container">
         <div class="user">
         <img class="imgcyrcle" src="img/user/${user['image']}" id="${user['id']}">
         <div class="user-content">
-        <span>${user['name']}</span>
-        <img class="icon-plus" src="./assets/img/icons8-plus.png"> 
+        <div class="user-name">${user['name']}</div>
         </div>
+        <div class="assign-to-plus" id="${i}" onclick="assignToTask(${i})">
+        <i id="assign-icon${i}" class="assign-to-minus"></i></div> 
         </div>
         </div>`;
     }
+}
+
+let userAssignToTask = [];
+
+function assignToTask(i) {
+    if (userAssignToTask.includes(i)) {
+        document.getElementById(i).classList.remove('selectedPlus');
+        document.getElementById('assign-icon' + i).classList.remove('assign-to-minus');
+        let indexAssignUser = assignUser.indexOf(assignUser[i]);
+        assignUser.splice(indexAssignUser, 1);
+        let index = userAssignToTask.indexOf(i);
+        userAssignToTask.splice(index, 1);
+    } else {
+        document.getElementById(i).classList.add('selectedPlus');
+        document.getElementById('assign-icon' + i).classList.add('assign-to-minus');
+        assignUser.push(users[i]);
+        userAssignToTask.push(i);
+    }
+    console.log('user:', assignUser);
 }
