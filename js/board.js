@@ -1,6 +1,11 @@
 
 let allTasks = [];
 
+/**
+   * this function sets the ids in ascending order
+   * 
+   * @param {} - no parameter needed
+   */
 function setID(){
     for (let i = 0; i < allTasks.length; i++) {
         allTasks[i]['id'] = i;
@@ -70,6 +75,7 @@ function allowDrop(ev) {
   function moveTo(status){
     allTasks[currentDraggedElement]['status'] = status;
     uptadeHTML();
+    saveToBackend();
   }
 
   function highlight(id){
@@ -83,4 +89,14 @@ function allowDrop(ev) {
 
 function generateTodoHTML(element){
     return `<div class="task" draggable="true" ondragstart="startDragging(${element['id']})">${element['titel']}</div>`;
+}
+
+/**
+   * This function saves the Array to backend
+   * 
+   * @param {} - no parameter needed
+   */
+async function saveToBackend() {
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    console.log('saved to backend');
 }
