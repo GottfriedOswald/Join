@@ -1,29 +1,47 @@
 // JSON Todo ist noch hardgecodet
-let todos = [{
-    'id':'0',
-    'title':'termin machen',
-    'category':'todo'
-},
-{
-    'id':'1',
-    'title':'Auto waschen',
-    'category':'todo'
-},
-{
-    'id':'2',
-    'title':'Kanban Board erstellen',
-    'category':'in-progress'
-},
-{
-    'id':'3',
-    'title':'promovieren',
-    'category':'in-examination'
-},
-{
-    'id':'4',
-    'title':'Rechnung zahlen',
-    'category':'done'
-}];
+// let todos = [{
+//     'id':'0',
+//     'title':'termin machen',
+//     'category':'todo'
+// },
+// {
+//     'id':'1',
+//     'title':'Auto waschen',
+//     'category':'todo'
+// },
+// {
+//     'id':'2',
+//     'title':'Kanban Board erstellen',
+//     'category':'in-progress'
+// },
+// {
+//     'id':'3',
+//     'title':'promovieren',
+//     'category':'in-examination'
+// },
+// {
+//     'id':'4',
+//     'title':'Rechnung zahlen',
+//     'category':'done'
+// }];
+
+let allTasks = [];
+// let todos = [];
+
+function setID(){
+    for (let i = 0; i < allTasks.length; i++) {
+        allTasks[i]['id'] = i;
+    }
+}
+
+async function loadFromBackend() {
+    await downloadFromServer();
+    allTasks = JSON.parse(backend.getItem('allTasks')) || [];
+    console.log('Loaded from backend allTasks', allTasks);
+    setID();
+    uptadeHTML();
+    // console.log('hope it works', allTasks);
+}
 
   let currentDraggedElement;
 
@@ -34,28 +52,28 @@ let todos = [{
    */
 function uptadeHTML(){
 
-    let todo = todos.filter(t => t['category'] == 'todo');
+    let todo = allTasks.filter(t => t['status'] == 'todo');
     document.getElementById('task1').innerHTML = ``;
     for (let index = 0; index < todo.length; index++) {
         const element = todo[index]   ;
         document.getElementById('task1').innerHTML += generateTodoHTML(element);
     }
 
-    let inProgress = todos.filter(t => t['category'] == 'in-progress');
+    let inProgress = allTasks.filter(t => t['status'] == 'in-progress');
     document.getElementById('task2').innerHTML = ``;
     for (let index = 0; index < inProgress.length; index++) {
         const element = inProgress[index]   ;
         document.getElementById('task2').innerHTML += generateTodoHTML(element);
     }
 
-    let inExamination = todos.filter(t => t['category'] == 'in-examination');
+    let inExamination = allTasks.filter(t => t['status'] == 'in-examination');
     document.getElementById('task3').innerHTML = ``;
     for (let index = 0; index < inExamination.length; index++) {
         const element = inExamination[index]   ;
         document.getElementById('task3').innerHTML += generateTodoHTML(element);
     }
 
-    let done = todos.filter(t => t['category'] == 'done');
+    let done = allTasks.filter(t => t['status'] == 'done');
     document.getElementById('task4').innerHTML = ``;
     for (let index = 0; index < done.length; index++) {
         const element = done[index]   ;
@@ -76,8 +94,8 @@ function allowDrop(ev) {
     ev.preventDefault();
   }
 
-  function moveTo(category){
-    todos[currentDraggedElement]['category'] = category;
+  function moveTo(status){
+    allTasks[currentDraggedElement]['status'] = status;
     uptadeHTML();
   }
 
@@ -91,5 +109,5 @@ function allowDrop(ev) {
 
 
 function generateTodoHTML(element){
-    return `<div class="task" draggable="true" ondragstart="startDragging(${element['id']})">${element['title']}</div>`;
+    return `<div class="task" draggable="true" ondragstart="startDragging(${element['id']})">${element['titel']}</div>`;
 }
