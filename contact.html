@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./css/contact.css">
+    <script src="./js/includeHTML.js"></script>
+    <title>Join-Kontakt</title>
+</head>
+<body onload="includeHTML()">
+    <div w3-include-html="templates/navbar.html"></div>
+    <div class="smooth-bg"></div>
+
+    <div class="contakt-area">
+        <section class="form-section">
+            <form action="http://gottfried-oswald.developerakademie.com/send_mail/send_mail.php" method="POST" class="flex column center">
+
+                <div class="mb-3">
+                    <!-- <label for="exampleFormControlInput1" class="form-label">Email address</label> -->
+                    <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="dein Name">
+                  </div>
+                  <div class="mb-3">
+                    <!-- <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label> -->
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="7" placeholder="Deine Nachricht an uns"></textarea>
+                  </div>
+
+
+        
+                <button type="submit">Mail senden</button>
+            </form>
+        </section>
+
+    </div>
+</body>
+</html>
