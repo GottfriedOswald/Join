@@ -19,20 +19,34 @@ function showAllTasks() {
     for (let i = 0; i < allTasks.length; i++) {
         taskRow.innerHTML += `
 
-    <tr class="table-row" id="${allTasks[i]['id']}" >
-        <td class="table-profil">
-            <div class="profil-content">
-                <img id="profile-img" class="profil-img" src="">
-                <div class="profil-name-email">
-                    <div id="profil-name" class="profil-name">${allTasks[1]["user"][0]["name"]}</div>
-                    <a id="profil-email" href="#">test@guest.de</a>
+        <tr class="table-row" id="${allTasks[i]['id']}" >
+            <td class="table-profil">
+                <div class="profil-content">
+                   <div id="profil-img${i}"> <img class="profil-img" src=".img/${i}"></div>
+                    <div class="profil-name-email">
+                        <div id="profil-name${i}" class="profil-name"></div>
+                        <a id="profil-email${i}" href="#">test@guest.de</a>
+                    </div>
                 </div>
-            </div>
-        </td>
-        <td>${allTasks[i]['category']}</td>
-        <td>${allTasks[i]['description']}</td>
-    </tr>
+            </td>
+            <td>${allTasks[i]['category']}</td>
+            <td>${allTasks[i]['description']}</td>
+        </tr>
 
-    `;
+        `;
+
+        let taskUsers = allTasks[i]['user'];
+
+        for (let j = 0; j < taskUsers.length; j++) {
+            document.getElementById(`profil-name${i}`).innerHTML = `
+                ${taskUsers[j]['name']}`;
+            document.getElementById(`profil-email${i}`).innerHTML = `
+                ${taskUsers[j]['email']}
+            `;
+            document.getElementById(`profil-img${i}`).src = `
+            ${taskUsers[j]['image']}
+        `;
+        }
     }
+
 }

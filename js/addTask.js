@@ -7,22 +7,26 @@ setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
 users = [{
         'id': 0,
         'image': 'GottfriedOswald.jpg',
-        'name': 'Gottfried'
+        'name': 'Gottfried',
+        'email': 'Gottfried@web.de'
     },
     {
         'id': 1,
         'image': 'michelleH.jpg',
-        'name': 'Michelle'
+        'name': 'Michelle',
+        'email': 'Michelle@web.de'
     },
     {
         'id': 2,
         'image': 'guest.png',
-        'name': 'Kaan'
+        'name': 'Kaan',
+        'email': 'Kaan@web.de'
     },
     {
         'id': 3,
         'image': 'guest.png',
-        'name': 'Guest'
+        'name': 'Guest',
+        'email': 'Guest@web.de'
     },
 ];
 
