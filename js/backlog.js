@@ -36,6 +36,7 @@ function showAllTasks() {
         `;
 
         let taskUsers = allTasks[i]['user'];
+        console.log(taskUsers);
 
         for (let j = 0; j < taskUsers.length; j++) {
             document.getElementById(`profil-name${i}`).innerHTML = `
