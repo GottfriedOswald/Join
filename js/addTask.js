@@ -85,6 +85,7 @@ function clearInputfields() {
 
 async function saveToBackend() {
     await backend.setItem('allTasks', JSON.stringify(allTasks));
+    await backend.setItem('allUsers', JSON.stringify(allUsers));
     console.log('saved to backend');
 }
 
@@ -97,7 +98,7 @@ function showUsers() {
         document.getElementById('assignet-to-content').innerHTML += `
         <div class="user-container">
         <div class="user">
-        <img class="imgcyrcle" src="img/user/${user['image']}" id="${user['id']}">
+        <img class="imgcyrcle" src="img/user/${user['img']}" id="${user['id']}">
         <div class="user-content">
         <div class="user-name">${user['name']}</div>
         </div>
