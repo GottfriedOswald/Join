@@ -1,6 +1,6 @@
 // Leere Arrays
 let allTasks = [];
-allUsers = [{
+let allUsers = [{
         'id': 0,
         'img': './img/user/GottfriedOswald.jpg',
         'name': 'Gottfried',
@@ -25,8 +25,11 @@ allUsers = [{
         'email': 'Guest@web.de'
     },
 ];
+let currentUser = [];
+
 
 setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
+
 
 
 
@@ -34,6 +37,13 @@ async function init() {
     includeHTML();
     showUsers();
     await loadFromBackend();
+    today();
+}
+
+function today() {
+    let today = new Date().toISOString().substr(0, 10);
+    console.log(today);
+    document.querySelector('#date').value = today;
 }
 
 async function loadFromBackend() {
@@ -102,7 +112,9 @@ function showUsers() {
         <div class="user-content">
         <div class="user-name">${user['name']}</div>
         </div>
-        <div class="assign-to-plus" id="${i}" onclick="assignToTask(${i})">
+        <div class="assign-to-plus" id="${i}" 
+        // onclick="assignToTask(${i})"
+        >
 
         <i id="assign-icon${i}">+</i></div> 
         </div>
@@ -112,23 +124,20 @@ function showUsers() {
 
 
 
-// function assignToTask(i) {
-//     if (allUsers.includes(i)) {
-//         document.getElementById(i).classList.remove('assign-to-plus-activated');
-//         document.getElementById('assign-icon' + i).classList.remove('assign-to-plus-activated');
-//         let indexAllUser = allUsers.indexOf(allUsers[i]);
-//         allUsers.splice(indexAllUser, 1);
-//         let index = allUsers.indexOf(i);
-//         allUsers.splice(index, 1);
-//     } else {
-//         document.getElementById(i).classList.add('assign-to-plus-activated');
-//         document.getElementById('assign-icon' + i).classList.add('assign-to-plus-activated');
 
-
-//     }
-//     console.log('user:', );
-// }
-
-function changeUserAddToTask() {
-
+function assignToTask(i) {
+    if (allUsers.includes(i)) {
+        document.getElementById(i).classList.remove('assign-to-plus-activated');
+        document.getElementById('assign-icon' + i).classList.remove('assign-to-plus-activated');
+        let indexAssignUser = assignUser.indexOf(assignUser[i]);
+        assignUser.splice(indexAssignUser, 1);
+        let index = userAssignToTask.indexOf(i);
+        userAssignToTask.splice(index, 1);
+    } else {
+        document.getElementById(i).classList.add('assign-to-plus-activated');
+        document.getElementById('assign-icon' + i).classList.add('assign-to-plus-activated');
+        currentUser.push(allUsers[i]);
+        userAssignToTask.push(i);
+    }
+    console.log('user:', assignUser);
 }
