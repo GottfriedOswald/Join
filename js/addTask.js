@@ -6,25 +6,25 @@ setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
 
 allUsers = [{
         'id': 0,
-        'image': 'GottfriedOswald.jpg',
+        'img': 'GottfriedOswald.jpg',
         'name': 'Gottfried',
         'email': 'Gottfried@web.de'
     },
     {
         'id': 1,
-        'image': 'michelleH.jpg',
+        'img': 'michelleH.jpg',
         'name': 'Michelle',
         'email': 'Michelle@web.de'
     },
     {
         'id': 2,
-        'image': 'guest.png',
+        'img': 'guest.png',
         'name': 'Kaan',
         'email': 'Kaan@web.de'
     },
     {
         'id': 3,
-        'image': 'guest.png',
+        'img': 'guest.png',
         'name': 'Guest',
         'email': 'Guest@web.de'
     },
@@ -44,7 +44,7 @@ async function loadFromBackend() {
 
 function addTask(event) {
     event.preventDefault();
-
+    let id = Math.round(Math.random() * 10000);
     let titel = document.getElementById('titel').value;
     let category = document.getElementById('category').value;
     let description = document.getElementById('description').value;
@@ -52,8 +52,9 @@ function addTask(event) {
     let urgency = document.getElementById('urgency').value;
     let name = allUsers[0]['name'];
     let email = allUsers[0]['email'];
+    let img = allUsers[0]['img'];
     let status = 'todo';
-    let id = Math.round(Math.random() * 10000);
+
 
     let task = {
         'id': id,
@@ -63,10 +64,9 @@ function addTask(event) {
         'createdAt': date,
         'urgency': urgency,
         'status': status,
-        'user': assignUser,
         'name': name,
-        'email': email
-
+        'email': email,
+        'img': img
     }
 
     allTasks.push(task); //push new task to Array allTasks
@@ -91,8 +91,8 @@ async function saveToBackend() {
 function showUsers() {
     document.getElementById('assignet-to-content').innerHTML = '';
 
-    for (let i = 0; i < users.length; i++) {
-        let user = users[i];
+    for (let i = 0; i < allUsers.length; i++) {
+        let user = allUsers[i];
 
         document.getElementById('assignet-to-content').innerHTML += `
         <div class="user-container">
