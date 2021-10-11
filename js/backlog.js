@@ -3,6 +3,7 @@ setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
 async function init() {
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem('allTasks')) || [];
+    allUsers = JSON.parse(backend.getItem('allUsers')) || [];
     console.log('From backend', allTasks);
     loadValues();
 }
@@ -15,7 +16,7 @@ function loadValues() {
         taskRow.innerHTML += `
         <tr class="${allTasks[i]['urgency']}">
             <td class="td-assigned">
-                <img src="${allTasks[i]['img']}">
+                <img src="${allUsers[i]['img']}">
                 <div id="name-assigned" class="name-assigned">
                     <span>${allTasks[i]['name']}</span>
                     <span>${allTasks[i]['email']}</span>

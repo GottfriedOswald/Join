@@ -6,7 +6,7 @@ setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
 
 let allUsers = [{
         'id': 0,
-        'img': 'GottfriedOswald.jpg',
+        'img': './img/user/GottfriedOswald.jpg',
         'name': 'Gottfried',
         'email': 'Gottfried@web.de'
     },
