@@ -1,34 +1,34 @@
 // Leere Arrays
 let allTasks = [];
-let assignUser = [];
-
-setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
-
 allUsers = [{
         'id': 0,
-        'img': 'GottfriedOswald.jpg',
+        'img': './img/user/GottfriedOswald.jpg',
         'name': 'Gottfried',
         'email': 'Gottfried@web.de'
     },
     {
         'id': 1,
-        'img': 'michelleH.jpg',
+        'img': './img/user/michelleH.jpg',
         'name': 'Michelle',
         'email': 'Michelle@web.de'
     },
     {
         'id': 2,
-        'img': 'guest.png',
+        'img': './img/user/guest.png',
         'name': 'Kaan',
         'email': 'Kaan@web.de'
     },
     {
         'id': 3,
-        'img': 'guest.png',
+        'img': './img/user/guest.png',
         'name': 'Guest',
         'email': 'Guest@web.de'
     },
 ];
+
+setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
+
+
 
 async function init() {
     includeHTML();
@@ -98,7 +98,7 @@ function showUsers() {
         document.getElementById('assignet-to-content').innerHTML += `
         <div class="user-container">
         <div class="user">
-        <img class="imgcyrcle" src="img/user/${user['img']}" id="${user['id']}">
+        <img class="imgcyrcle" src="${user['img']}" id="${user['id']}">
         <div class="user-content">
         <div class="user-name">${user['name']}</div>
         </div>
@@ -110,21 +110,25 @@ function showUsers() {
     }
 }
 
-let userAssignToTask = [];
 
-function assignToTask(i) {
-    if (userAssignToTask.includes(i)) {
-        document.getElementById(i).classList.remove('assign-to-plus-activated');
-        document.getElementById('assign-icon' + i).classList.remove('assign-to-plus-activated');
-        let indexAssignUser = assignUser.indexOf(assignUser[i]);
-        assignUser.splice(indexAssignUser, 1);
-        let index = userAssignToTask.indexOf(i);
-        userAssignToTask.splice(index, 1);
-    } else {
-        document.getElementById(i).classList.add('assign-to-plus-activated');
-        document.getElementById('assign-icon' + i).classList.add('assign-to-plus-activated');
-        assignUser.push(users[i]);
-        userAssignToTask.push(i);
-    }
-    console.log('user:', assignUser);
+
+// function assignToTask(i) {
+//     if (allUsers.includes(i)) {
+//         document.getElementById(i).classList.remove('assign-to-plus-activated');
+//         document.getElementById('assign-icon' + i).classList.remove('assign-to-plus-activated');
+//         let indexAllUser = allUsers.indexOf(allUsers[i]);
+//         allUsers.splice(indexAllUser, 1);
+//         let index = allUsers.indexOf(i);
+//         allUsers.splice(index, 1);
+//     } else {
+//         document.getElementById(i).classList.add('assign-to-plus-activated');
+//         document.getElementById('assign-icon' + i).classList.add('assign-to-plus-activated');
+
+
+//     }
+//     console.log('user:', );
+// }
+
+function changeUserAddToTask() {
+
 }
