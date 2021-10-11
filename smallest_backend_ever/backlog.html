@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font PT Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>Backlog</title>
+    <script src="./js/mini_backend.js"></script>
+    <script>
+        setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
+    </script>
+    <script src="./js/includeHTML.js"></script>
+    <script src="./js/backlog.js"></script>
+    <link rel="stylesheet" href="./css/backlog.css">
+
+    <body onload="init()">
+        <div w3-include-html="templates/navbar.html"></div>
+        <div class="main-container">
+            <div class="backlog-header">
+                <h2>Backlog</h2>
+                <span>Learning Managment System Project</span>
+            </div>
+
+            <div class="backlog-table-content">
+                <table class="table">
+                    <tbody>
+                        <tr class="table-head">
+                            <th>Assigned To</th>
+                            <th>Category</th>
+                            <th>Details</th>
+                        </tr>
+                    </tbody>
+                    <tbody id="task-row">
+                        <tr class="table-row">
+                            <td class="table-profil">
+                                <div class="profil-content">
+                                    <img id="profile-img" class="profil-img" src="./img/user/guest.png" alt="">
+                                    <div class="profil-name-email">
+                                        <div id="profil-name" class="profil-name">Guest</div>
+                                        <a id="profil-email" href="#">test@guest.de</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Managment</td>
+                            <td>info</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+            </div>
+        </div>
+    </body>
+
+</html>

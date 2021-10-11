@@ -1,0 +1,60 @@
+@font-face{
+	font-family: "PT Sans";
+	src:url(../fonts/PTSans-Regular.ttf) format("truetype"),
+		url(../fonts/PTSans-Bold.ttf) format("truetype"),
+		url(../fonts/PTSans-BoldItalic.ttf) format("truetype"),
+		url(../fonts/PTSans-Italic.ttf) format("truetype");
+		
+  
+		font-style: bold;
+		font-weight: bold;
+  }
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+	font-family: "PT Sans", sans-serif !important;
+	margin: 0;
+}
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
+.contentframe {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 250px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 0.5) 0%, rgba(9, 9, 121, 0.2) 5%, rgba(0, 212, 255, 0.2) 100%); */
+}
+
+.form-section {
+    z-index: 20;
+}
+
+.rightView{
+    position: absolute;
+    left: 250px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}

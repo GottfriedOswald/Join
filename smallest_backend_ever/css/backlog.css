@@ -1,0 +1,18 @@
+.main-container {
+    margin-top: 50px;
+    margin-left: 280px;
+    width: 60%;
+}
+
+.profil-img {
+    height: 50px;
+    width: 50px;
+}
+
+.profil-content {
+    display: flex;
+}
+
+.table-row {
+    background-color: lightgrey;
+}

@@ -5,57 +5,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Font PT Sans -->
+    <title>Join</title>
+    <script src="./js/mini_backend.js"></script>
+    <link rel="stylesheet" href="./css/backlog.css">
+    <script src="./js/backlog.js"></script>
+    <script src="./js/includeHTML.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <title>Backlog</title>
-    <script src="./js/mini_backend.js"></script>
-    <script>
-        setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
-    </script>
-    <script src="./js/includeHTML.js"></script>
-    <script src="./js/backlog.js"></script>
-    <link rel="stylesheet" href="./css/backlog.css">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
 
-    <body onload="init()">
+</head>
+
+<body onload="init()">
+    <div class="add-task-container" id="add-task-container">
         <div w3-include-html="templates/navbar.html"></div>
-        <div class="main-container">
-            <div class="backlog-header">
-                <h2>Backlog</h2>
-                <span>Learning Managment System Project</span>
-            </div>
 
-            <div class="backlog-table-content">
-                <table class="table">
-                    <tbody>
-                        <tr class="table-head">
-                            <th>Assigned To</th>
-                            <th>Category</th>
-                            <th>Details</th>
-                        </tr>
-                    </tbody>
-                    <tbody id="task-row">
-                        <!-- <tr class="table-row">
-                            <td class="table-profil">
-                                <div class="profil-content">
-                                    <img id="profil-img" class="profil-img" src="./img/user/guest.png" alt="">
-                                    <div class="profil-name-email">
-                                        <div id="profil-name" class="profil-name">Guest</div>
-                                        <a id="profil-email" href="#">test@guest.de</a>
-                                    </div>
-                                </div>
+        <div class="backlog-box" id="backlog-box">
+            <div class="box-header">
+                <h1>Backlog</h1>
+                <h5 style="margin-top: 3px">Learning Management System Project</h5>
+            </div>
+            <div class="backlog-box-body">
+                <table id="table" class="table">
+                    <thead>
+                        <tr>
+                            <td class="td-assigned-header">
+                                <h3></span>ASSIGNED TO</h3>
                             </td>
-                            <td id="category-td">Managment</td>
-                            <td id="detial-td">info</td>
-                        </tr> -->
+                            <td class="td-category-header">
+                                <h3>CATEGORY<h3>
+                            </td>
+                            <td class="td-details-header">
+                                <h3>DETAILS</h3>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody id="taskRow">
+                    
+
                     </tbody>
                 </table>
 
-
-
             </div>
         </div>
-    </body>
+    </div>
 
-</html>
+
+    <script>includeHTML();</script>
+</body>
