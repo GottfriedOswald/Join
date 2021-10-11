@@ -4,7 +4,7 @@ let assignUser = [];
 
 setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
 
-allUsers = [{
+let allUsers = [{
         'id': 0,
         'img': 'GottfriedOswald.jpg',
         'name': 'Gottfried',
