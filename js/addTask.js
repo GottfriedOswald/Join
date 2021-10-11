@@ -4,7 +4,7 @@ let assignUser = [];
 
 setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
 
-users = [{
+allUsers = [{
         'id': 0,
         'image': 'GottfriedOswald.jpg',
         'name': 'Gottfried',
@@ -50,7 +50,8 @@ function addTask(event) {
     let description = document.getElementById('description').value;
     let date = document.getElementById('date').value;
     let urgency = document.getElementById('urgency').value;
-
+    let name = allUsers[0]['name'];
+    let email = allUsers[0]['email'];
     let status = 'todo';
     let id = Math.round(Math.random() * 10000);
 
@@ -62,7 +63,10 @@ function addTask(event) {
         'createdAt': date,
         'urgency': urgency,
         'status': status,
-        'user': assignUser
+        'user': assignUser,
+        'name': name,
+        'email': email
+
     }
 
     allTasks.push(task); //push new task to Array allTasks

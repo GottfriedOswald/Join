@@ -22,7 +22,7 @@ function showAllTasks() {
         <tr class="table-row" id="${allTasks[i]['id']}" >
             <td class="table-profil">
                 <div class="profil-content">
-                   <div id="profil-img${i}"> <img class="profil-img" src="img/user/guest.png"></div>
+                   <div id="profil-img${i}"> <img class="profil-img" src=""></div>
                     <div class="profil-name-email">
                         <div id="profil-name${i}" class="profil-name"></div>
                         <a id="profil-email${i}" href="#">test@guest.de</a>
@@ -46,7 +46,7 @@ function showAllTasks() {
             `;
 
             document.getElementById(`profil-img${i}`).src = `
-            img/user/${taskUsers[j]['image']}
+            ./img/user/${taskUsers[j]['image']}
             `;
         }
     }
