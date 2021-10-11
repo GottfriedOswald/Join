@@ -29,12 +29,9 @@ let allUsers = [{
         'email': 'Guest@web.de'
     },
 ];
-let currentUser = [];
 
 
 setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
-
-
 
 
 async function init() {
@@ -116,9 +113,7 @@ function showUsers() {
         <div class="user-content">
         <div class="user-name">${user['name']}</div>
         </div>
-        <div class="assign-to-plus" id="${i}" 
-        // onclick="assignToTask(${i})"
-        >
+        <div class="assign-to-plus" id="${i}" onclick="assignToTask(${i})">
 
         <i id="assign-icon${i}">+</i></div> 
         </div>
@@ -127,21 +122,21 @@ function showUsers() {
 }
 
 
-
+let currentUser = [];
 
 function assignToTask(i) {
-    if (allUsers.includes(i)) {
+    if (currentUser.includes(i)) {
         document.getElementById(i).classList.remove('assign-to-plus-activated');
         document.getElementById('assign-icon' + i).classList.remove('assign-to-plus-activated');
-        let indexAssignUser = assignUser.indexOf(assignUser[i]);
-        assignUser.splice(indexAssignUser, 1);
-        let index = userAssignToTask.indexOf(i);
-        userAssignToTask.splice(index, 1);
+        let indexAssignUser = allUsers.indexOf(allUsers[i]);
+        allUsers.splice(indexAssignUser, 1);
+        let index = currentUser.indexOf(i);
+        currentUser.splice(index, 1);
     } else {
         document.getElementById(i).classList.add('assign-to-plus-activated');
         document.getElementById('assign-icon' + i).classList.add('assign-to-plus-activated');
-        currentUser.push(allUsers[i]);
-        userAssignToTask.push(i);
+        allUsers.push(allUsers[i]);
+        currentUser.push(i);
     }
-    console.log('user:', assignUser);
+    console.log('user:', currentUser);
 }
