@@ -12,28 +12,42 @@ let allUsers = [{
     },
     {
         'id': 1,
-        'img': 'michelleH.jpg',
+        'img': './img/user/michelleH.jpg',
         'name': 'Michelle',
         'email': 'Michelle@web.de'
     },
     {
         'id': 2,
-        'img': 'guest.png',
+        'img': './img/user/guest.png',
         'name': 'Kaan',
         'email': 'Kaan@web.de'
     },
     {
         'id': 3,
-        'img': 'guest.png',
+        'img': './img/user/guest.png',
         'name': 'Guest',
         'email': 'Guest@web.de'
     },
 ];
+let currentUser = [];
+
+
+setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
+
+
+
 
 async function init() {
     includeHTML();
     showUsers();
     await loadFromBackend();
+    today();
+}
+
+function today() {
+    let today = new Date().toISOString().substr(0, 10);
+    console.log(today);
+    document.querySelector('#date').value = today;
 }
 
 async function loadFromBackend() {
@@ -98,11 +112,13 @@ function showUsers() {
         document.getElementById('assignet-to-content').innerHTML += `
         <div class="user-container">
         <div class="user">
-        <img class="imgcyrcle" src="img/user/${user['img']}" id="${user['id']}">
+        <img class="imgcyrcle" src="${user['img']}" id="${user['id']}">
         <div class="user-content">
         <div class="user-name">${user['name']}</div>
         </div>
-        <div class="assign-to-plus" id="${i}" onclick="assignToTask(${i})">
+        <div class="assign-to-plus" id="${i}" 
+        // onclick="assignToTask(${i})"
+        >
 
         <i id="assign-icon${i}">+</i></div> 
         </div>
@@ -110,10 +126,11 @@ function showUsers() {
     }
 }
 
-let userAssignToTask = [];
+
+
 
 function assignToTask(i) {
-    if (userAssignToTask.includes(i)) {
+    if (allUsers.includes(i)) {
         document.getElementById(i).classList.remove('assign-to-plus-activated');
         document.getElementById('assign-icon' + i).classList.remove('assign-to-plus-activated');
         let indexAssignUser = assignUser.indexOf(assignUser[i]);
@@ -123,7 +140,7 @@ function assignToTask(i) {
     } else {
         document.getElementById(i).classList.add('assign-to-plus-activated');
         document.getElementById('assign-icon' + i).classList.add('assign-to-plus-activated');
-        assignUser.push(users[i]);
+        currentUser.push(allUsers[i]);
         userAssignToTask.push(i);
     }
     console.log('user:', assignUser);

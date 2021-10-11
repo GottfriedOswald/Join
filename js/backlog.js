@@ -16,10 +16,10 @@ function loadValues() {
         taskRow.innerHTML += `
         <tr class="${allTasks[i]['urgency']}">
             <td class="td-assigned">
-                <img src="${allUsers[i]['img']}">
+                <img src="${currentUser[i]['img']}">
                 <div id="name-assigned" class="name-assigned">
-                    <span>${allTasks[i]['name']}</span>
-                    <span>${allTasks[i]['email']}</span>
+                    <span>${currentUser[i]['name']}</span>
+                    <span>${currentUser[i]['email']}</span>
                 </div>
             </td>
             <td class="td-category">
