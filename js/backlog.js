@@ -22,7 +22,7 @@ function showAllTasks() {
         <tr class="table-row" id="${allTasks[i]['id']}" >
             <td class="table-profil">
                 <div class="profil-content">
-                   <div id="profil-img${i}"> <img class="profil-img" src=".img/${i}"></div>
+                   <div id="profil-img${i}"> <img class="profil-img" src="img/user/guest.png"></div>
                     <div class="profil-name-email">
                         <div id="profil-name${i}" class="profil-name"></div>
                         <a id="profil-email${i}" href="#">test@guest.de</a>
@@ -36,6 +36,7 @@ function showAllTasks() {
         `;
 
         let taskUsers = allTasks[i]['user'];
+        console.log(taskUsers);
 
         for (let j = 0; j < taskUsers.length; j++) {
             document.getElementById(`profil-name${i}`).innerHTML = `
@@ -43,9 +44,10 @@ function showAllTasks() {
             document.getElementById(`profil-email${i}`).innerHTML = `
                 ${taskUsers[j]['email']}
             `;
+
             document.getElementById(`profil-img${i}`).src = `
-            ${taskUsers[j]['image']}
-        `;
+            img/user/${taskUsers[j]['image']}
+            `;
         }
     }
 
