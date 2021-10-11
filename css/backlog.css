@@ -7,6 +7,10 @@
     --td-color: black;
 }
 
+.add-task-container{
+    margin-left: 250px;
+}
+
 .backlog-box {
     width: 85%;
     margin-left: 12px;
