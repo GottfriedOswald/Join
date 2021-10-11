@@ -24,11 +24,13 @@ table {
     width: 100%;
     color: rgba(28, 45, 146, 0.75);
     font-weight: bold;
+    border: none;
 }
 
 thead tr{
     color: rgba(28, 45, 146, 0.75);
     border: none;
+    
 }
 
 tr {
