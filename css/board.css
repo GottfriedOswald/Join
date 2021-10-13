@@ -1,15 +1,41 @@
-*{
+@font-face {
+    font-family: "PT Sans";
+    src: url(../fonts/PTSans-Regular.ttf) format("truetype"), url(../fonts/PTSans-Bold.ttf) format("truetype"), url(../fonts/PTSans-BoldItalic.ttf) format("truetype"), url(../fonts/PTSans-Italic.ttf) format("truetype");
+    font-style: bold;
+    font-weight: bold;
+}
+
+* {
     box-sizing: border-box;
+}
+
+body {
+    font-family: "PT Sans", sans-serif !important;
+    margin: 0;
+}
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
 }
 
 :root {
     --bg1: rgba(28, 45, 146, 0.75);
 }
 
-.task-area{
+.task-area {
     position: relative;
-    width: 16vw;
+    min-width: 300px;
     height: 90vh;
+    margin: 0 16px;
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     display: flex;
@@ -17,8 +43,8 @@
     align-items: center;
 }
 
-.task{
-    width: 15vw;
+.task {
+    width: 290px;
     text-align: start;
     border: solid 1px black;
     border-radius: 8px;
@@ -32,25 +58,56 @@
     box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
 }
 
-.task:hover{
+.task:hover {
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 
-.task-header{
+.task-header {
     text-align: center;
-    width: 16vw;
+    width: 300px;
     padding: 16px;
     background-color: var(--bg1);
     color: wheat;
     border-radius: 8px 8px 0 0;
 }
 
-.drag-area-highlight{
-    background-color: rgba(0, 0, 0, 0.2);  
+.drag-area-highlight {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
-.trashIcon{
+.trashIcon {
     height: 14px;
     width: 14px;
     cursor: pointer;
+}
+
+.contentframe {
+    position: absolute;
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.taskboard {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 250px;
+    overflow: auto;
+}
+
+.form-section {
+    z-index: 20;
+}
+
+.rightView {
+    position: absolute;
+    left: 250px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
