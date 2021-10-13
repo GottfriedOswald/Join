@@ -1,7 +1,7 @@
 :root {
     --box-color: white;
     --border-radius: 6px;
-    --border-color: green;
+    --border-color: rgba(28, 45, 146, 0.75);
     --border-left: 8px solid;
     --success-color: #50a443;
     --td-color: black;
@@ -22,13 +22,15 @@
 
 table {
     width: 100%;
-    color: var(--success-color);
+    color: rgba(28, 45, 146, 0.75);
     font-weight: bold;
+    border: none;
 }
 
 thead tr{
-    color: var(--success-color);
+    color: rgba(28, 45, 146, 0.75);
     border: none;
+    
 }
 
 tr {
