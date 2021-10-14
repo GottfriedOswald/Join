@@ -20,8 +20,6 @@
     <script src="./js/includeHTML.js"></script>
     <script src="./js/addTask.js"></script>
 
-
-    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/addTask.css">
 </head>
 
@@ -29,6 +27,9 @@
 <body onload="init()">
 
     <div w3-include-html="templates/navbar.html"></div>
+    <div class="container">
+
+    </div>
     <div class="main-coniatiner">
         <div class="header-task">
             <h2>Add Task</h2>
@@ -83,25 +84,61 @@
                     </select>
 
 
-                    <div class="assignet-to">
+                    <!-- <div class="assignet-to">
                         <h3>ASSIGNET TO</h3>
                         <div class="assignet-to-content" id="assignet-to-content">
                             <div><img class="imgcyrcle" src="img/user/guest.png" id="user-img"></div>
                         </div>
-                    </div>
+                    </div> -->
+
+                    <div class="selected-container">
+                        <h2>ASSIGNET TO</h2>
+
+                        <div class="select-box">
+                            <div class="selected">
+                                Teile einen User ein
+                            </div>
+                            <div class="options-container" id="options-contain">
+
+                                <div class="option" id="option">
+                                    <img class="imgcyrcle" src="img/user/guest.png" id="user-img">
+                                    <input type="radio" class="radio" id="gottfried" name="gottfried" />
+                                    <label for="gottfried">Gottfried</label>
+                                </div>
+
+                                <!-- <div class="option">
+                                    <img class="imgcyrcle" src="img/user/guest.png" id="user-img">
+                                    <input type="radio" class="radio" id="kaan" name="kaan" />
+                                    <label for="kaan">Kaan</label>
+                                </div>
+
+                                <div class="option">
+                                    <img class="imgcyrcle" src="img/user/guest.png" id="user-img">
+                                    <input type="radio" class="radio" id="michelle" name="michelle" />
+                                    <label for="gottfried">Michelle</label>
+                                </div>
+
+                                <div class="option">
+                                    <img class="imgcyrcle" src="img/user/guest.png" id="user-img">
+                                    <input type="radio" class="radio" id="guest" name="guest" />
+                                    <label for="guest">Gast</label>
+                                </div> -->
 
 
-                    <div class="button-div">
-                        <a class="cancel-btn" href="#" onclick="clearInputfields()">CANCEL</a>
-                        <button class="addtask-btn">CREATE TASK</button>
-                    </div>
+                            </div>
+
+                        </div>
+                        <div class="button-div">
+                            <a class="cancel-btn" href="#" onclick="clearInputfields()">CANCEL</a>
+                            <button class="addtask-btn">CREATE TASK</button>
+                        </div>
                 </form>
-            </div>
+                </div>
 
+            </div>
+            </form>
         </div>
 
-    </div>
-    </form>
 </body>
 
 </html>

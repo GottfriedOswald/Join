@@ -30,14 +30,31 @@ let allUsers = [{
 },
 ];
 
+// Variablen für Assign To
+
+function selectedUser() {
+    const selected = document.querySelector(".selected");
+    const optionsContainer = document.querySelector(".options-container");
+
+    const optionsList = document.querySelectorAll(".option");
+
+    selected.addEventListener("click", () => {
+        optionsContainer.classList.toggle("active");
+    });
+
+}
+
+
+
 
 setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
 
 
 async function init() {
     includeHTML();
-    showUsers();
     await loadFromBackend();
+    showUsers();
+    selectedUser();
     today();
 }
 
@@ -61,9 +78,9 @@ function addTask(event) {
     let description = document.getElementById('description').value;
     let date = document.getElementById('date').value;
     let urgency = document.getElementById('urgency').value;
-    let name = allUsers[0]['name'];
-    let email = allUsers[0]['email'];
-    let img = allUsers[0]['img'];
+    let name = currentUser[0]['name'];
+    let email = currentUser[0]['email'];
+    let img = currentUser[0]['img'];
     let status = 'todo';
 
 
@@ -83,7 +100,7 @@ function addTask(event) {
     allTasks.push(task); //push new task to Array allTasks
     saveToBackend();
     clearInputfields();
-
+    // window.location.href = "../board.html";
 }
 
 function clearInputfields() {
@@ -101,42 +118,72 @@ async function saveToBackend() {
 }
 
 function showUsers() {
-    document.getElementById('assignet-to-content').innerHTML = '';
+    // document.getElementById('assignet-to-content').innerHTML = '';
 
+    // for (let i = 0; i < allUsers.length; i++) {
+    //     let user = allUsers[i];
+
+    //     document.getElementById('assignet-to-content').innerHTML += `
+    //     <div class="user-container">
+    //     <div class="user">
+    //     <img class="imgcyrcle" src="${user['img']}" id="${user['id']}">
+    //     <div class="user-content">
+    //     <div class="user-name">${user['name']}</div>
+    //     </div>
+    //     <div class="assign-to-plus" id="${i}" onclick="assignToTask(${i})">
+
+    //     <i id="assign-icon${i}">+</i></div> 
+    //     </div>
+    //     </div>`;
+    // }
+
+    document.getElementById('option').innerHTML = '';
     for (let i = 0; i < allUsers.length; i++) {
         let user = allUsers[i];
 
-        document.getElementById('assignet-to-content').innerHTML += `
-        <div class="user-container">
-        <div class="user">
-        <img class="imgcyrcle" src="${user['img']}" id="${user['id']}">
-        <div class="user-content">
-        <div class="user-name">${user['name']}</div>
-        </div>
-        <div class="assign-to-plus" id="${i}" onclick="assignToTask(${i})">
+        document.getElementById('option').innerHTML += `
+        <div class="option-user" onclick="addUsertoTask(${i})">
+         <img class="imgcyrcle" src="${user['img']}" id="user-img">
+         <input type="radio" class="radio" id="gottfried" name="user" />
+         <label for="user">${user['name']}</label>
+        </div>  `;
 
-        <i id="assign-icon${i}">+</i></div> 
-        </div>
-        </div>`;
     }
 }
 
 
 let currentUser = [];
 
-function assignToTask(i) {
+// function assignToTask(i) {
+//     if (currentUser.includes(i)) {
+//         document.getElementById(i).classList.remove('assign-to-plus-activated');
+//         document.getElementById('assign-icon' + i).classList.remove('assign-to-plus-activated');
+//         let indexAssignUser = allUsers.indexOf(allUsers[i]);
+//         allUsers.splice(indexAssignUser, 1);
+//         let index = currentUser.indexOf(i);
+//         currentUser.splice(index, 1);
+//     } else {
+//         document.getElementById(i).classList.add('assign-to-plus-activated');
+//         document.getElementById('assign-icon' + i).classList.add('assign-to-plus-activated');
+//         allUsers.push(allUsers[i]);
+//         currentUser.push(i);
+//     }
+//     console.log('user:', currentUser);
+// }
+
+function addUsertoTask(i) {
+
     if (currentUser.includes(i)) {
-        document.getElementById(i).classList.remove('assign-to-plus-activated');
-        document.getElementById('assign-icon' + i).classList.remove('assign-to-plus-activated');
         let indexAssignUser = allUsers.indexOf(allUsers[i]);
         allUsers.splice(indexAssignUser, 1);
         let index = currentUser.indexOf(i);
         currentUser.splice(index, 1);
+        alert('User gelöscht')
     } else {
-        document.getElementById(i).classList.add('assign-to-plus-activated');
-        document.getElementById('assign-icon' + i).classList.add('assign-to-plus-activated');
-        allUsers.push(allUsers[i]);
+
+        currentUser.push(allUsers[i]);
         currentUser.push(i);
+        alert('User hinzugefügt')
     }
     console.log('user:', currentUser);
 }
