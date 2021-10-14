@@ -1,29 +1,33 @@
 // Leere Arrays
 let allTasks = [];
+let assignUser = [];
+
+setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
+
 let allUsers = [{
-        'id': 0,
-        'img': './img/user/GottfriedOswald.jpg',
-        'name': 'Gottfried',
-        'email': 'Gottfried@web.de'
-    },
-    {
-        'id': 1,
-        'img': './img/user/michelleH.jpg',
-        'name': 'Michelle',
-        'email': 'Michelle@web.de'
-    },
-    {
-        'id': 2,
-        'img': './img/user/guest.png',
-        'name': 'Kaan',
-        'email': 'Kaan@web.de'
-    },
-    {
-        'id': 3,
-        'img': './img/user/guest.png',
-        'name': 'Guest',
-        'email': 'Guest@web.de'
-    },
+    'id': 0,
+    'img': './img/user/GottfriedOswald.jpg',
+    'name': 'Gottfried',
+    'email': 'Gottfried@web.de'
+},
+{
+    'id': 1,
+    'img': './img/user/michelleH.jpg',
+    'name': 'Michelle',
+    'email': 'Michelle@web.de'
+},
+{
+    'id': 2,
+    'img': './img/user/guest.png',
+    'name': 'Kaan',
+    'email': 'Kaan@web.de'
+},
+{
+    'id': 3,
+    'img': './img/user/guest.png',
+    'name': 'Guest',
+    'email': 'Guest@web.de'
+},
 ];
 
 // Variablen für Assign To

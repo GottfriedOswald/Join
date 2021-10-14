@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/board.css">
-    <script src="./js/includeHTML.js"></script>
-    <script src="./js/board.js"></script>
+
     <script src="./js/mini_backend.js"></script>
     <script>setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');</script>
+    <script src="./js/includeHTML.js"></script>
+    <script src="./js/board.js"></script>
     <title>JoinBoard</title>
 </head>
 
 <body onload="includeHTML(), loadFromBackend()">
     <div w3-include-html="templates/navbar.html"></div>
-
+<section class="taskboard">
     <div class="contentframe">
         <div class="task-area" id="todo" ondrop="moveTo('todo'); removeHighlight('todo')" ondragleave="removeHighlight('todo')" ondragover="allowDrop(event); highlight('todo')">
             <div class="task-header">zu erledigen</div>
@@ -36,7 +36,7 @@
             <div id="task4"></div>
         </div>
     </div>
-    
+</section>
 </body>
 
 </html>
