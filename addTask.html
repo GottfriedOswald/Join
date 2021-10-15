@@ -27,8 +27,13 @@
 <body onload="init()">
 
     <div w3-include-html="templates/navbar.html"></div>
-    <div class="container">
+    <div class="pop-up-add-task">
+        <div class="pop-up">
+            <div class="close" id="close">
+                <img class="close-icon" src="./img/close.png" alt=""></div>
+            <div class="pop-up-content">Ihre Aufgabe wurde erstellt und dem Board hinzugefügt!</div>
 
+        </div>
     </div>
     <div class="main-coniatiner">
         <div class="header-task">
@@ -83,14 +88,6 @@
                     <option>HIGH</option>
                     </select>
 
-
-                    <!-- <div class="assignet-to">
-                        <h3>ASSIGNET TO</h3>
-                        <div class="assignet-to-content" id="assignet-to-content">
-                            <div><img class="imgcyrcle" src="img/user/guest.png" id="user-img"></div>
-                        </div>
-                    </div> -->
-
                     <div class="selected-container">
                         <h2>ASSIGNET TO</h2>
 
@@ -106,24 +103,6 @@
                                     <label for="gottfried">Gottfried</label>
                                     <div class="check"><img class="img-icon" src="./img/check.png" alt=""></div>
                                 </div>
-
-                                <!-- <div class="option">
-                                    <img class="imgcyrcle" src="img/user/guest.png" id="user-img">
-                                    <input type="radio" class="radio" id="kaan" name="kaan" />
-                                    <label for="kaan">Kaan</label>
-                                </div>
-
-                                <div class="option">
-                                    <img class="imgcyrcle" src="img/user/guest.png" id="user-img">
-                                    <input type="radio" class="radio" id="michelle" name="michelle" />
-                                    <label for="gottfried">Michelle</label>
-                                </div>
-
-                                <div class="option">
-                                    <img class="imgcyrcle" src="img/user/guest.png" id="user-img">
-                                    <input type="radio" class="radio" id="guest" name="guest" />
-                                    <label for="guest">Gast</label>
-                                </div> -->
 
 
                             </div>

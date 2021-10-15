@@ -100,7 +100,6 @@ function addTask(event) {
     allTasks.push(task); //push new task to Array allTasks
     saveToBackend();
     clearInputfields();
-    window.location.href = "../board.html";
 }
 
 function clearInputfields() {

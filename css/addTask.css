@@ -2,6 +2,36 @@ body {
     margin: 0;
 }
 
+.pop-up-add-task {
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-up {
+    height: 200px;
+    width: 50%;
+    background-color: white;
+    margin-left: 250px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.close-icon {
+    height: 20px;
+    width: 20px;
+    object-fit: cover;
+}
+
 .main-coniatiner {
     display: flex;
     flex-direction: column;
