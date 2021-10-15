@@ -142,10 +142,13 @@ function showUsers() {
         let user = allUsers[i];
 
         document.getElementById('option').innerHTML += `
-        <div class="option-user" onclick="addUsertoTask(${i})">
+        <div class="option-user">
          <img class="imgcyrcle" src="${user['img']}" id="user-img">
          <input type="radio" class="radio" id="gottfried" name="user" />
          <label for="user">${user['name']}</label>
+         <div class="check" id="">
+         <div onclick="addUsertoTask(${i})"><img id="check${i}" class="img-icon" src="./img/check.png"></div>
+         <div onclick="deleteUserFromTask(${i})"><img id="minus${i}" class="img-icon" src="./img/minus.png"></div>
         </div>  `;
 
     }
@@ -172,18 +175,24 @@ let currentUser = [];
 // }
 
 function addUsertoTask(i) {
+    document.getElementById('check' + i).classList.add('active');
+    document.getElementById('minus' + i).classList.remove('delete');
+    currentUser.push(allUsers[i]);
+    currentUser.push(i);
 
+    alert('User hinzugefügt')
+    console.log('user:', currentUser);
+}
+
+function deleteUserFromTask(i) {
     if (currentUser.includes(i)) {
+        document.getElementById('minus' + i).classList.add('delete');
+        document.getElementById('check' + i).classList.remove('active');
         let indexAssignUser = allUsers.indexOf(allUsers[i]);
         allUsers.splice(indexAssignUser, 1);
         let index = currentUser.indexOf(i);
         currentUser.splice(index, 1);
-        alert('User gelöscht')
-    } else {
 
-        currentUser.push(allUsers[i]);
-        currentUser.push(i);
-        alert('User hinzugefügt')
+        alert('User gelöscht')
     }
-    console.log('user:', currentUser);
 }

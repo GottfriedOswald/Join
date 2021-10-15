@@ -172,6 +172,32 @@ body {
     overflow-y: scroll;
 }
 
+.option-user {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.img-icon {
+    height: 24px;
+    width: 24px;
+    object-fit: cover;
+}
+
+.d-none {
+    display: none;
+}
+
+.active {
+    background-color: green;
+    border-radius: 100%;
+}
+
+.delete {
+    background-color: red;
+    border-radius: 100%;
+}
+
 
 /* wenn wir die KLasse options-container und active gleichziegtig haben nehmen wir Veränderungen an der selected::after vor */
 
