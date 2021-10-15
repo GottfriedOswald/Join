@@ -30,7 +30,7 @@ let allUsers = [{
     },
 ];
 
-// Variablen für Assign To
+// Funktion für die User Box
 
 function selectedUser() {
     const selected = document.querySelector(".selected");
@@ -118,24 +118,6 @@ async function saveToBackend() {
 }
 
 function showUsers() {
-    // document.getElementById('assignet-to-content').innerHTML = '';
-
-    // for (let i = 0; i < allUsers.length; i++) {
-    //     let user = allUsers[i];
-
-    //     document.getElementById('assignet-to-content').innerHTML += `
-    //     <div class="user-container">
-    //     <div class="user">
-    //     <img class="imgcyrcle" src="${user['img']}" id="${user['id']}">
-    //     <div class="user-content">
-    //     <div class="user-name">${user['name']}</div>
-    //     </div>
-    //     <div class="assign-to-plus" id="${i}" onclick="assignToTask(${i})">
-
-    //     <i id="assign-icon${i}">+</i></div> 
-    //     </div>
-    //     </div>`;
-    // }
 
     document.getElementById('option').innerHTML = '';
     for (let i = 0; i < allUsers.length; i++) {
@@ -157,22 +139,6 @@ function showUsers() {
 
 let currentUser = [];
 
-// function assignToTask(i) {
-//     if (currentUser.includes(i)) {
-//         document.getElementById(i).classList.remove('assign-to-plus-activated');
-//         document.getElementById('assign-icon' + i).classList.remove('assign-to-plus-activated');
-//         let indexAssignUser = allUsers.indexOf(allUsers[i]);
-//         allUsers.splice(indexAssignUser, 1);
-//         let index = currentUser.indexOf(i);
-//         currentUser.splice(index, 1);
-//     } else {
-//         document.getElementById(i).classList.add('assign-to-plus-activated');
-//         document.getElementById('assign-icon' + i).classList.add('assign-to-plus-activated');
-//         allUsers.push(allUsers[i]);
-//         currentUser.push(i);
-//     }
-//     console.log('user:', currentUser);
-// }
 
 function addUsertoTask(i) {
     document.getElementById('check' + i).classList.add('active');
@@ -180,7 +146,7 @@ function addUsertoTask(i) {
     currentUser.push(allUsers[i]);
     currentUser.push(i);
 
-    alert('User hinzugefügt')
+    alert('User hinzugefügt');
     console.log('user:', currentUser);
 }
 
@@ -193,6 +159,13 @@ function deleteUserFromTask(i) {
         let index = currentUser.indexOf(i);
         currentUser.splice(index, 1);
 
-        alert('User gelöscht')
+        alert('User gelöscht');
+        deleteUserFromBackend();
+        console.log('user:', currentUser);
     }
+}
+
+function deleteUserFromBackend(position) {
+    currentUser.splice(position, 1);
+    backend.setItem('currentUser', currentUser);
 }
