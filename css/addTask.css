@@ -2,6 +2,51 @@ body {
     margin: 0;
 }
 
+.pop-up-add-task {
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-up {
+    height: 200px;
+    width: 500px;
+    background-color: white;
+    margin-left: 250px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.close-icon {
+    height: 20px;
+    width: 20px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.close {
+    display: flex;
+    justify-content: end;
+}
+
+.pop-up-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+}
+
 .main-coniatiner {
     display: flex;
     flex-direction: column;
@@ -195,6 +240,11 @@ body {
 
 .delete {
     background-color: red;
+    border-radius: 100%;
+}
+
+.refresh {
+    background-color: white;
     border-radius: 100%;
 }
 
