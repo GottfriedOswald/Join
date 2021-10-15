@@ -17,10 +17,10 @@ body {
 
 .pop-up {
     height: 200px;
-    width: 50%;
+    width: 500px;
     background-color: white;
     margin-left: 250px;
-    border-radius: 20px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -30,6 +30,21 @@ body {
     height: 20px;
     width: 20px;
     object-fit: cover;
+    cursor: pointer;
+}
+
+.close {
+    display: flex;
+    justify-content: end;
+}
+
+.pop-up-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
 }
 
 .main-coniatiner {
@@ -225,6 +240,11 @@ body {
 
 .delete {
     background-color: red;
+    border-radius: 100%;
+}
+
+.refresh {
+    background-color: white;
     border-radius: 100%;
 }
 

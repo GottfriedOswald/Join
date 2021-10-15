@@ -1,9 +1,6 @@
 // Leere Arrays
 let allTasks = [];
 let assignUser = [];
-
-setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
-
 let allUsers = [{
         'id': 0,
         'img': './img/user/GottfriedOswald.jpg',
@@ -29,6 +26,9 @@ let allUsers = [{
         'email': 'Guest@web.de'
     },
 ];
+let currentUser = [];
+
+setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
 
 // Funktion für die User Box
 
@@ -43,12 +43,6 @@ function selectedUser() {
     });
 
 }
-
-
-
-
-setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
-
 
 async function init() {
     includeHTML();
@@ -100,6 +94,8 @@ function addTask(event) {
     allTasks.push(task); //push new task to Array allTasks
     saveToBackend();
     clearInputfields();
+    today();
+    openPopUp();
 }
 
 function clearInputfields() {
@@ -128,28 +124,15 @@ function showUsers() {
          <input type="radio" class="radio" id="gottfried" name="user" />
          <label for="user">${user['name']}</label>
          <div class="check" id="">
-         <div onclick="addUsertoTask(${i})"><img id="check${i}" class="img-icon" src="./img/check.png"></div>
-         <div onclick="deleteUserFromTask(${i})"><img id="minus${i}" class="img-icon" src="./img/minus.png"></div>
+         <div onclick="addAndDeleteUserFromTask(${i})"><img id="check${i}" class="img-icon" src="./img/check.png"></div>
+         <div onclick="addAndDeleteUserFromTask(${i})"><img id="minus${i}" class="img-icon" src="./img/minus.png"></div>
         </div>  `;
 
     }
 }
 
 
-let currentUser = [];
-
-
-function addUsertoTask(i) {
-    document.getElementById('check' + i).classList.add('active');
-    document.getElementById('minus' + i).classList.remove('delete');
-    currentUser.push(allUsers[i]);
-    currentUser.push(i);
-
-    alert('User hinzugefügt');
-    console.log('user:', currentUser);
-}
-
-function deleteUserFromTask(i) {
+function addAndDeleteUserFromTask(i) {
     if (currentUser.includes(i)) {
         document.getElementById('minus' + i).classList.add('delete');
         document.getElementById('check' + i).classList.remove('active');
@@ -157,9 +140,13 @@ function deleteUserFromTask(i) {
         allUsers.splice(indexAssignUser, 1);
         let index = currentUser.indexOf(i);
         currentUser.splice(index, 1);
-
-        alert('User gelöscht');
         deleteUserFromBackend();
+        console.log('user:', currentUser);
+    } else {
+        document.getElementById('check' + i).classList.add('active');
+        document.getElementById('minus' + i).classList.remove('delete');
+        currentUser.push(allUsers[i]);
+        currentUser.push(i);
         console.log('user:', currentUser);
     }
 }
@@ -167,4 +154,14 @@ function deleteUserFromTask(i) {
 function deleteUserFromBackend(position) {
     currentUser.splice(position, 1);
     backend.setItem('currentUser', currentUser);
+    console.log('user:', currentUser);
+}
+
+
+function closePopUp() {
+    document.getElementById('pop-up').classList.add('d-none');
+}
+
+function openPopUp() {
+    document.getElementById('pop-up').classList.remove('d-none');
 }
