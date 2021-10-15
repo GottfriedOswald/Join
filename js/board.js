@@ -1,6 +1,8 @@
 
 let allTasks = [];
 
+
+
 /**
    * this function sets the ids in ascending order
    * 
@@ -87,23 +89,47 @@ function removeHighlight(id) {
 }
 
 function deleteTask(id) {
-    console.log('vor löschen',allTasks);
+    console.log('vor löschen', allTasks);
     allTasks.splice(id, 1);
-    console.log('nach löschen',allTasks);
+    console.log('nach löschen', allTasks);
     setID();
-    console.log('nach id setzen',allTasks);
+    console.log('nach id setzen', allTasks);
     saveToBackend();
-    console.log('nach backend speichern',allTasks);
+    console.log('nach backend speichern', allTasks);
     uptadeHTML();
-    console.log('nach html update',allTasks);
+    console.log('nach html update', allTasks);
 }
 
 
 function generateTodoHTML(element) {
-    return `<div class="task" draggable="true" ondragstart="startDragging(${element['id']})">
-    <span>${element['titel']}</span>
-    <img src="img/trash-icon.png" alt="trash icon" class="trashIcon" onclick="deleteTask(${element['id']})">
-    </div>`;
+    return `
+    
+        <div class="task flex-column ${getBorderColor(element)}" draggable="true" ondragstart="startDragging(${element['id']})">
+            <div class="text-bg fontsize">${setNameToTask(element)}</div>
+            <div class="flex center space-between">
+                <span>${element['titel']}</span>
+                <img src="img/trash-icon.png" alt="trash icon" class="trashIcon" onclick="deleteTask(${element['id']})">
+            </div>
+            <div class="text-bg fontsize">${element['createdAt']}</div>
+        </div>
+    
+    
+    `;
+}
+/**
+ * the function checks whether "name" exists
+ * 
+ * @param {*} element element a special element(task) in an array
+ * @returns name of the employee
+ */
+function setNameToTask(element) {
+    let name;
+    if (element['name']) {
+        name = element['name'];
+    } else {
+        name = "unknown";
+    }
+    return name;
 }
 
 /**
@@ -115,4 +141,19 @@ async function saveToBackend() {
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     console.log('saved to backend');
     uptadeHTML();
+}
+
+/**
+ * get the bordercolor for the task, depends on the urgency
+ * 
+ * @param {*} element element a special element(task) in an array
+ * @returns color for the frame seperated for the urgency
+ */
+function getBorderColor(element) {
+    if (element['urgency'] == 'LOW') {
+        return 'urgency-low';
+    } else if (element['urgency'] == 'MIDDLE') {
+        return 'urgency-middle';
+    } else
+        return 'urgency-high';
 }

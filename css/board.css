@@ -1,3 +1,7 @@
+:root {
+    --bg1: rgba(28, 45, 146, 0.75);
+}
+
 @font-face {
     font-family: "PT Sans";
     src: url(../fonts/PTSans-Regular.ttf) format("truetype"), url(../fonts/PTSans-Bold.ttf) format("truetype"), url(../fonts/PTSans-BoldItalic.ttf) format("truetype"), url(../fonts/PTSans-Italic.ttf) format("truetype");
@@ -27,8 +31,18 @@ body {
     align-items: center;
 }
 
-:root {
-    --bg1: rgba(28, 45, 146, 0.75);
+.space-between{
+    justify-content: space-between;
+}
+
+.text-bg{
+    background-color: rgba(0, 0, 0, 0.08);
+    border-radius: 5px;
+    padding-left: 8px;
+}
+
+.fontsize{
+    font-size: 0.8rem;
 }
 
 .task-area {
@@ -46,15 +60,13 @@ body {
 .task {
     width: 290px;
     text-align: start;
-    border: solid 1px black;
-    border-top: solid 5px black;
+    border: solid 1px;
+    border-top: solid 5px;
     border-radius: 8px;
     padding: 4px;
     margin: 3px;
     background-color: white;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     cursor: pointer;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
 }
@@ -70,6 +82,18 @@ body {
     background-color: var(--bg1);
     color: wheat;
     border-radius: 8px 8px 0 0;
+}
+
+.urgency-low{
+    border-top: 5px solid green;
+}
+
+.urgency-middle{
+    border-top: 5px solid orange;
+}
+
+.urgency-high{
+    border-top: 5px solid red;
 }
 
 .drag-area-highlight {
