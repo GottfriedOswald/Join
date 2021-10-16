@@ -1,6 +1,6 @@
 
 let allTasks = [];
-
+let currentUser = [];
 
 
 /**
@@ -17,9 +17,11 @@ function setID() {
 async function loadFromBackend() {
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem('allTasks')) || [];
+    currentUser = JSON.parse(backend.getItem('currentUser')) || [];
     console.log('Loaded from backend allTasks', allTasks);
     setID();
     uptadeHTML();
+    currentProfil()
     // console.log('hope it works', allTasks);
 }
 
@@ -31,6 +33,8 @@ let currentDraggedElement;
  * @param {} - no parameter needed
  */
 function uptadeHTML() {
+
+  
 
     let todo = allTasks.filter(t => t['status'] == 'todo');
     document.getElementById('task1').innerHTML = ``;
@@ -157,3 +161,8 @@ function getBorderColor(element) {
     } else
         return 'urgency-high';
 }
+
+function currentProfil() {
+    let profilIcon = document.getElementById('profil-picture');
+    profilIcon.src = currentUser[0].img;
+ }

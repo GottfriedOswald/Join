@@ -1,11 +1,14 @@
+let currentUser = [];
 setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
 
 async function init() {
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem('allTasks')) || [];
     allUsers = JSON.parse(backend.getItem('allUsers')) || [];
+    currentUser = JSON.parse(backend.getItem('currentUser')) || [];
     console.log('From backend', allTasks);
     loadValues();
+    currentProfil();
 }
 
 function loadValues() {
@@ -33,3 +36,7 @@ function loadValues() {
     }
 }
 
+function currentProfil() {
+    let profilIcon = document.getElementById('profil-picture');
+    profilIcon.src = currentUser[0].img;
+ }

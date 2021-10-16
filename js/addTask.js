@@ -5,25 +5,31 @@ let allUsers = [{
         'id': 0,
         'img': './img/user/GottfriedOswald.jpg',
         'name': 'Gottfried',
-        'email': 'Gottfried@web.de'
+        'email': 'Gottfried@web.de',
+        'password': 'Gottfried'
     },
     {
         'id': 1,
         'img': './img/user/michelleH.jpg',
         'name': 'Michelle',
-        'email': 'Michelle@web.de'
+        'email': 'Michelle@web.de',
+        'password': 'Michelle'
+
     },
     {
         'id': 2,
         'img': './img/user/guest.png',
         'name': 'Kaan',
-        'email': 'Kaan@web.de'
+        'email': 'Kaan@web.de',
+        'password': 'Kaan'
     },
     {
         'id': 3,
         'img': './img/user/guest.png',
         'name': 'Guest',
-        'email': 'Guest@web.de'
+        'email': 'Guest@web.de',
+        'password': ''
+
     },
 ];
 let currentUser = [];
@@ -50,6 +56,7 @@ async function init() {
     showUsers();
     selectedUser();
     today();
+    currentProfil();
 }
 
 function today() {
@@ -61,7 +68,9 @@ function today() {
 async function loadFromBackend() {
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem('allTasks')) || [];
+    currentUser = JSON.parse(backend.getItem('currentUser')) || [];
     console.log('Loaded from backend allTasks', allTasks);
+  
 }
 
 function addTask(event) {
@@ -164,4 +173,9 @@ function closePopUp() {
 
 function openPopUp() {
     document.getElementById('pop-up').classList.remove('d-none');
+}
+
+function currentProfil() {
+   let profilIcon = document.getElementById('profil-picture');
+   profilIcon.src = currentUser[0].img;
 }

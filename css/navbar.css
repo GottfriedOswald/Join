@@ -30,6 +30,27 @@
     text-decoration: none;
 }
 
+.profil-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profil-bar a {
+    color: blanchedalmond;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.profil-bar img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 /* Optimazition for mobile device display 900px */
 
 @media(max-width: 1100px) {
@@ -39,14 +60,14 @@
         flex-direction: row !important;
         width: 100vw;
     }
-    .links{
+    .links {
         display: flex;
         flex-direction: row !important;
     }
     .links a {
         font-size: 1.5rem;
     }
-    .taskboard{
+    .taskboard {
         position: unset;
     }
 }
