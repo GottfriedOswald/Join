@@ -116,7 +116,7 @@ async function guestLogIn() {
         'email': 'guest@test.de',
         'name': 'Guest',
         'password': '',
-        'img': './images/profile.jpg',
+        'img': './img/user/guest.png',
     }
     currentUser = [];
     currentUser.push(guest);
