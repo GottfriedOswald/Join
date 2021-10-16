@@ -70,7 +70,7 @@ async function loadFromBackend() {
     allTasks = JSON.parse(backend.getItem('allTasks')) || [];
     currentUser = JSON.parse(backend.getItem('currentUser')) || [];
     console.log('Loaded from backend allTasks', allTasks);
-  
+
 }
 
 function addTask(event) {
@@ -133,38 +133,39 @@ function showUsers() {
          <input type="radio" class="radio" id="gottfried" name="user" />
          <label for="user">${user['name']}</label>
          <div class="check" id="">
-         <div onclick="addAndDeleteUserFromTask(${i})"><img id="check${i}" class="img-icon" src="./img/check.png"></div>
-         <div onclick="addAndDeleteUserFromTask(${i})"><img id="minus${i}" class="img-icon" src="./img/minus.png"></div>
+         <div onclick=""><img id="check${i}" class="img-icon" src="./img/icon plus.png"></div>
+         <div onclick=""><img id="minus${i}" class="img-icon" src="./img/minus.png"></div>
         </div>  `;
 
     }
 }
 
 
-function addAndDeleteUserFromTask(i) {
-    if (currentUser.includes(i)) {
-        document.getElementById('minus' + i).classList.add('delete');
-        document.getElementById('check' + i).classList.remove('active');
-        let indexAssignUser = allUsers.indexOf(allUsers[i]);
-        allUsers.splice(indexAssignUser, 1);
-        let index = currentUser.indexOf(i);
-        currentUser.splice(index, 1);
-        deleteUserFromBackend();
-        console.log('user:', currentUser);
-    } else {
-        document.getElementById('check' + i).classList.add('active');
-        document.getElementById('minus' + i).classList.remove('delete');
-        currentUser.push(allUsers[i]);
-        currentUser.push(i);
-        console.log('user:', currentUser);
-    }
-}
 
-function deleteUserFromBackend(position) {
-    currentUser.splice(position, 1);
-    backend.setItem('currentUser', currentUser);
-    console.log('user:', currentUser);
-}
+// function addAndDeleteUserFromTask(i) {
+//     if (currentUser.includes(i)) {
+//         document.getElementById('minus' + i).classList.add('delete');
+//         document.getElementById('check' + i).classList.remove('active');
+//         let indexAssignUser = allUsers.indexOf(allUsers[i]);
+//         allUsers.splice(indexAssignUser, 1);
+//         let index = currentUser.indexOf(i);
+//         currentUser.splice(index, 1);
+//         deleteUserFromBackend();
+//         console.log('user:', currentUser);
+//     } else {
+//         document.getElementById('check' + i).classList.add('active');
+//         document.getElementById('minus' + i).classList.remove('delete');
+//         currentUser.push(allUsers[i]);
+//         currentUser.push(i);
+//         console.log('user:', currentUser);
+//     }
+// }
+
+// function deleteUserFromBackend(position) {
+//     currentUser.splice(position, 1);
+//     backend.setItem('currentUser', currentUser);
+//     console.log('user:', currentUser);
+// }
 
 
 function closePopUp() {
@@ -176,6 +177,6 @@ function openPopUp() {
 }
 
 function currentProfil() {
-   let profilIcon = document.getElementById('profil-picture');
-   profilIcon.src = currentUser[0].img;
+    let profilIcon = document.getElementById('profil-picture');
+    profilIcon.src = currentUser[0].img;
 }
