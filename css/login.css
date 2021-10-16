@@ -6,7 +6,7 @@
     --bg-color: rgb(150, 150, 150);
     --td-color: black;
     --success-color: #50a443;
-    --error-color: rgba(255, 0, 0, 0.548);
+    --error-color: rgba(252, 26, 26, 0.747);
 }
 
 body {
@@ -22,16 +22,17 @@ body {
 
 img {
     width: 150px;
+    height: 150px;
 }
 
 a {
-    color: rgba(28, 45, 146, 0.75);
+    color: white;
     font-weight: bold;
     font-size: 32px;
 }
 
 a:hover{
-    color: rgba(8, 17, 70, 0.75);
+    color: rgb(173, 173, 173);
 }
 
 .login-container {
@@ -43,6 +44,7 @@ a:hover{
     min-width: 22vw;
     border-radius: 12px;
     border: 1px solid rgba(28, 45, 146, 0.75);
+    background-color: rgb(30, 48, 153);
 }
 
 .login-header {
@@ -56,7 +58,7 @@ a:hover{
 
 h1 {
     margin-bottom: 32px;
-    color: rgba(28, 45, 146, 0.75);
+    color: white;
     font-size: 54px;
 }
 
@@ -112,7 +114,7 @@ p {
 
 .input-fields {
     outline: none;
-    border: 3px solid #50a443a2;
+    border: 3px solid rgba(28, 45, 146, 0.75);
     padding: 6px;
     box-sizing: border-box;
     height: 48px;
@@ -128,12 +130,12 @@ p {
     font-size: 32px;
     width: 100%;
     margin-top: 12px;
-    background-color: rgba(28, 45, 146, 0.75);
-    color: white
+    background-color: rgb(238, 238, 238);
+    color: rgba(28, 45, 146, 0.75);
 }
 
 .login-button:hover {
-    background-color: rgba(20, 34, 112, 0.75);
+    background-color: rgba(231, 231, 231, 0.75);
 }
 
 .login-footer {
