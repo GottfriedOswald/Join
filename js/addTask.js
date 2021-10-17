@@ -169,6 +169,7 @@ function openPopUp() {
     document.getElementById('pop-up').classList.remove('d-none');
 }
 
+
 function currentProfil() {
     let profilIcon = document.getElementById('profil-picture');
     profilIcon.src = currentUser[0].img;
