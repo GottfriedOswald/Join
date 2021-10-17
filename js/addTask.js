@@ -1,4 +1,4 @@
-// Leere Arrays
+// Arrays
 let allTasks = [];
 let assignUser = [];
 let allUsers = [{
@@ -33,22 +33,9 @@ let allUsers = [{
     },
 ];
 let currentUser = [];
+let userAssignToTask = [];
 
 setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
-
-// Funktion für die User Box
-
-function selectedUser() {
-    const selected = document.querySelector(".selected");
-    const optionsContainer = document.querySelector(".options-container");
-
-    const optionsList = document.querySelectorAll(".option");
-
-    selected.addEventListener("click", () => {
-        optionsContainer.classList.toggle("active");
-    });
-
-}
 
 async function init() {
     includeHTML();
@@ -70,7 +57,7 @@ async function loadFromBackend() {
     allTasks = JSON.parse(backend.getItem('allTasks')) || [];
     currentUser = JSON.parse(backend.getItem('currentUser')) || [];
     console.log('Loaded from backend allTasks', allTasks);
-  
+
 }
 
 function addTask(event) {
@@ -97,7 +84,8 @@ function addTask(event) {
         'status': status,
         'name': name,
         'email': email,
-        'img': img
+        'img': img,
+        'user': assignUser
     }
 
     allTasks.push(task); //push new task to Array allTasks
@@ -133,40 +121,46 @@ function showUsers() {
          <input type="radio" class="radio" id="gottfried" name="user" />
          <label for="user">${user['name']}</label>
          <div class="check" id="">
-         <div onclick="addAndDeleteUserFromTask(${i})"><img id="check${i}" class="img-icon" src="./img/check.png"></div>
-         <div onclick="addAndDeleteUserFromTask(${i})"><img id="minus${i}" class="img-icon" src="./img/minus.png"></div>
-        </div>  `;
+         <div class="assign-to-plus" id="${i}" onclick="assignToTask(${i})">
+
+         <i id="assign-icon${i}" class="fas fa-plus"></i></div>  `;
 
     }
 }
 
+// Function for the User Box
+function selectedUser() {
+    const selected = document.querySelector(".selected");
+    const optionsContainer = document.querySelector(".options-container");
 
-function addAndDeleteUserFromTask(i) {
-    if (currentUser.includes(i)) {
-        document.getElementById('minus' + i).classList.add('delete');
-        document.getElementById('check' + i).classList.remove('active');
-        let indexAssignUser = allUsers.indexOf(allUsers[i]);
-        allUsers.splice(indexAssignUser, 1);
-        let index = currentUser.indexOf(i);
-        currentUser.splice(index, 1);
-        deleteUserFromBackend();
-        console.log('user:', currentUser);
+    const optionsList = document.querySelectorAll(".option");
+
+    selected.addEventListener("click", () => {
+        optionsContainer.classList.toggle("active");
+    });
+
+}
+
+//Funtion for add Users to Task
+function assignToTask(i) {
+    if (userAssignToTask.includes(i)) {
+        document.getElementById(i).classList.remove('selectedPlus');
+        document.getElementById('assign-icon' + i).classList.remove('minus');
+        let indexAssignUser = assignUser.indexOf(assignUser[i]);
+        assignUser.splice(indexAssignUser, 1);
+        let index = userAssignToTask.indexOf(i);
+        userAssignToTask.splice(index, 1);
     } else {
-        document.getElementById('check' + i).classList.add('active');
-        document.getElementById('minus' + i).classList.remove('delete');
-        currentUser.push(allUsers[i]);
-        currentUser.push(i);
-        console.log('user:', currentUser);
+        document.getElementById(i).classList.add('selectedPlus');
+        document.getElementById('assign-icon' + i).classList.add('minus');
+        assignUser.push(allUsers[i]);
+        userAssignToTask.push(i);
     }
-}
-
-function deleteUserFromBackend(position) {
-    currentUser.splice(position, 1);
-    backend.setItem('currentUser', currentUser);
-    console.log('user:', currentUser);
+    console.log('user:', assignUser);
 }
 
 
+//Function for open and close Pop Up when Task is done
 function closePopUp() {
     document.getElementById('pop-up').classList.add('d-none');
 }
@@ -175,7 +169,8 @@ function openPopUp() {
     document.getElementById('pop-up').classList.remove('d-none');
 }
 
+
 function currentProfil() {
-   let profilIcon = document.getElementById('profil-picture');
-   profilIcon.src = currentUser[0].img;
+    let profilIcon = document.getElementById('profil-picture');
+    profilIcon.src = currentUser[0].img;
 }

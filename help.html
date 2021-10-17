@@ -11,12 +11,17 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
     <title>Help</title>
 
+    <script src="./js/mini_backend.js"></script>
+    <script>
+        setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
+    </script>
+
     <script src="./js/includeHTML.js"></script>
-    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/help.js"></script>
     <link rel="stylesheet" href="./css/help.css">
 </head>
 
-<body onload="includeHTML()">
+<body onload="initHelpPage()">
     <div w3-include-html="templates/navbar.html"></div>
     <div class="main-container">
         <div class="help-container">

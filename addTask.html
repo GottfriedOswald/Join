@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 
+    <!-- Icon for Assign User -->
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
+
     <title>Add Task</title>
 
     <script src="./js/mini_backend.js"></script>
@@ -27,15 +30,7 @@
 <body onload="init()">
 
     <div w3-include-html="templates/navbar.html"></div>
-    <div class="pop-up-add-task d-none" id="pop-up">
-        <div class="pop-up">
-            <div class="close">
-                <img onclick="closePopUp()" class="close-icon" src="./img/close.png" alt=""></div>
-            <div class="pop-up-content">
-                Ihre Aufgabe wurde erstellt und dem Board hinzugefügt!</div>
 
-        </div>
-    </div>
     <div class="main-coniatiner">
         <div class="header-task">
             <h2>Add Task</h2>
@@ -118,6 +113,16 @@
 
             </div>
             </form>
+        </div>
+
+        <div class="pop-up-add-task d-none" id="pop-up">
+            <div class="pop-up">
+                <div class="close">
+                    <img onclick="closePopUp()" class="close-icon" src="./img/close.png" alt=""></div>
+                <div class="pop-up-content">
+                    Ihre Aufgabe wurde erstellt und dem Board hinzugefügt!</div>
+
+            </div>
         </div>
 
 </body>
