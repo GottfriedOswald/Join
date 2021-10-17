@@ -31,6 +31,11 @@ body {
     align-items: center;
 }
 
+.end {
+    justify-content: end;
+    align-items: center;
+}
+
 .space-between{
     justify-content: space-between;
 }
@@ -135,4 +140,36 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+
+.descriptionViewFrame{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.descriptionView{
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    /* min-width: 540px;
+    min-height: 300px; */
+    border-radius: 8px;
+}
+
+.descriptionViewImage{
+    width: 105px;
+    height: auto;
+    border-radius: 48px;
+    padding: 8px 16px;
+}
+
+.d-none{
+    display: none;
 }

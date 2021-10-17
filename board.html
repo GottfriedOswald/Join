@@ -17,26 +17,71 @@
 
 <body onload="includeHTML(), loadFromBackend()">
     <div w3-include-html="templates/navbar.html"></div>
-<section class="taskboard">
-    <div class="contentframe">
-        <div class="task-area" id="todo" ondrop="moveTo('todo'); removeHighlight('todo')" ondragleave="removeHighlight('todo')" ondragover="allowDrop(event); highlight('todo')">
-            <div class="task-header">zu erledigen</div>
-            <div id="task1"></div>
+    <section class="taskboard">
+        <div class="contentframe">
+            <div class="task-area" id="todo" ondrop="moveTo('todo'); removeHighlight('todo')"
+                ondragleave="removeHighlight('todo')" ondragover="allowDrop(event); highlight('todo')">
+                <div class="task-header">zu erledigen</div>
+                <div id="task1"></div>
+            </div>
+            <div class="task-area" id="in-progress" ondrop="moveTo('in-progress'); removeHighlight('in-progress')"
+                ondragleave="removeHighlight('in-progress')" ondragover="allowDrop(event); highlight('in-progress')">
+                <div class="task-header">in Arbeit</div>
+                <div id="task2"></div>
+            </div>
+            <div class="task-area" id="in-examination"
+                ondrop="moveTo('in-examination'); removeHighlight('in-examination')"
+                ondragleave="removeHighlight('in-examination')"
+                ondragover="allowDrop(event); highlight('in-examination')">
+                <div class="task-header">in Prüfung</div>
+                <div id="task3"></div>
+            </div>
+            <div class="task-area" id="done" ondrop="moveTo('done'); removeHighlight('done')"
+                ondragleave="removeHighlight('done')" ondragover="allowDrop(event); highlight('done')">
+                <div class="task-header">Erledigt</div>
+                <div id="task4"></div>
+            </div>
         </div>
-        <div class="task-area" id="in-progress" ondrop="moveTo('in-progress'); removeHighlight('in-progress')" ondragleave="removeHighlight('in-progress')" ondragover="allowDrop(event); highlight('in-progress')">
-            <div class="task-header">in Arbeit</div>
-            <div id="task2"></div>
+    </section>
+
+    <section class="descriptionViewFrame d-none" id="descriptionViewFrame" onclick="hideCard()">
+        <div class="descriptionView urgency-high flex center">
+            <!-- <div class="flex end">
+        <img src="img/user/GottfriedOswald.jpg" alt="" class="descriptionViewImage">
+        <span>Gottfried Oswald</span>
+    </div> -->
+            <div class="card mb-3" style="max-width: 640px;">
+                <div class="row g-0">
+                    <div class="col-md-2">
+                        <img src="img/user/GottfriedOswald.jpg" class="img-fluid rounded-start descriptionViewImage"
+                            alt="Image of User">
+                    </div>
+                    <div class="col-md-2">
+                        <img src="img/user/GottfriedOswald.jpg" class="img-fluid rounded-start descriptionViewImage"
+                            alt="Image of User">
+                    </div>
+                    <div class="col-md-2">
+                        <img src="img/user/GottfriedOswald.jpg" class="img-fluid rounded-start descriptionViewImage"
+                            alt="Image of User">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title" id="card-category">Beispieltext 1</h4>
+                            <h5 class="card-title" id="card-title">Beispieltext 2</h5>
+                            <p class="card-text" id="card-text-description">Beispieltext Beispieltext Beispieltext
+                                Beispieltext Beispieltext Beispieltext </p>
+                            <div class="flex space-between">
+                                <p class="card-text" id="card-text-deadline"><small class="text-muted">deadline</small>
+                                </p>
+                                <p class="card-text" id="card-text-urgency"><small
+                                        class="text-muted">dringlichkeit</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="task-area" id="in-examination" ondrop="moveTo('in-examination'); removeHighlight('in-examination')" ondragleave="removeHighlight('in-examination')" ondragover="allowDrop(event); highlight('in-examination')">
-            <div class="task-header">in Prüfung</div>
-            <div id="task3"></div>
-        </div>
-        <div class="task-area" id="done" ondrop="moveTo('done'); removeHighlight('done')" ondragleave="removeHighlight('done')" ondragover="allowDrop(event); highlight('done')">
-            <div class="task-header">Erledigt</div>
-            <div id="task4"></div>
-        </div>
-    </div>
-</section>
+    </section>
 </body>
 
 </html>

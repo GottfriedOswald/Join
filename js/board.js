@@ -108,7 +108,7 @@ function deleteTask(id) {
 function generateTodoHTML(element) {
     return `
     
-        <div class="task flex-column ${getBorderColor(element)}" draggable="true" ondragstart="startDragging(${element['id']})">
+        <div class="task flex-column ${getBorderColor(element)}" draggable="true" ondragstart="startDragging(${element['id']})" onclick="showCard(${element['id']})">
             <div class="text-bg fontsize">${setNameToTask(element)}</div>
             <div class="flex center space-between">
                 <span>${element['titel']}</span>
@@ -120,6 +120,21 @@ function generateTodoHTML(element) {
     
     `;
 }
+
+function showCard(element){
+    document.getElementById('card-category').innerHTML = allTasks[element]['category'];
+    document.getElementById('card-title').innerHTML = allTasks[element]['titel'];
+    document.getElementById('card-text-description').innerHTML = allTasks[element]['description'];
+    document.getElementById('card-text-deadline').innerHTML = allTasks[element]['createdAt'];
+    document.getElementById('card-text-urgency').innerHTML = `urgency: `+allTasks[element]['urgency'];
+    document.getElementById('descriptionViewFrame').classList.remove('d-none');
+}
+
+function hideCard(){
+    document.getElementById('descriptionViewFrame').classList.add('d-none');
+}
+
+
 /**
  * the function checks whether "name" exists
  * 
@@ -128,8 +143,8 @@ function generateTodoHTML(element) {
  */
 function setNameToTask(element) {
     let name;
-    if (element['name']) {
-        name = element['name'];
+    if (element['user']) {
+        name = element['user'][0]['name'];
     } else {
         name = "unknown";
     }
