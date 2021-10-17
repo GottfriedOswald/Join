@@ -93,15 +93,15 @@ function removeHighlight(id) {
 }
 
 function deleteTask(id) {
-    console.log('vor löschen', allTasks);
+    // console.log('vor löschen', allTasks);
     allTasks.splice(id, 1);
-    console.log('nach löschen', allTasks);
+    // console.log('nach löschen', allTasks);
     setID();
-    console.log('nach id setzen', allTasks);
+    // console.log('nach id setzen', allTasks);
     saveToBackend();
-    console.log('nach backend speichern', allTasks);
+    // console.log('nach backend speichern', allTasks);
     uptadeHTML();
-    console.log('nach html update', allTasks);
+    // console.log('nach html update', allTasks);
 }
 
 
