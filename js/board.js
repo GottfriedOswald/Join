@@ -34,8 +34,6 @@ let currentDraggedElement;
  */
 function uptadeHTML() {
 
-  
-
     let todo = allTasks.filter(t => t['status'] == 'todo');
     document.getElementById('task1').innerHTML = ``;
     for (let index = 0; index < todo.length; index++) {
@@ -107,17 +105,26 @@ function deleteTask(id) {
 
 function generateTodoHTML(element) {
     return `
-    
-        <div class="task flex-column ${getBorderColor(element)}" draggable="true" ondragstart="startDragging(${element['id']})" onclick="showCard(${element['id']})">
-            <div class="text-bg fontsize">${setNameToTask(element)}</div>
-            <div class="flex center space-between">
-                <span>${element['titel']}</span>
-                <img src="img/trash-icon.png" alt="trash icon" class="trashIcon" onclick="deleteTask(${element['id']})">
+    <div class="flex">
+        
+            <div class="task flex space-between ${getBorderColor(element)}" draggable="true" ondragstart="startDragging(${element['id']})" onclick="showCard(${element['id']})">
+                <div>
+                    <div class="text-bg fontsize">${setNameToTask(element)}</div>
+
+                    <div class="flex center space-between">
+                        <span>${element['titel']}</span>
+                    </div>
+
+                    <div class="text-bg fontsize">${element['createdAt']}</div>
+                </div>
+
+                <div class="flex center task-trash">
+                    <img src="img/trash-icon.png" alt="trash icon" class="trashIcon" onclick="deleteTask(${element['id']})">
+                </div>
+
             </div>
-            <div class="text-bg fontsize">${element['createdAt']}</div>
-        </div>
-    
-    
+            
+    </div>
     `;
 }
 
@@ -128,6 +135,23 @@ function showCard(element){
     document.getElementById('card-text-deadline').innerHTML = allTasks[element]['createdAt'];
     document.getElementById('card-text-urgency').innerHTML = `urgency: `+allTasks[element]['urgency'];
     document.getElementById('descriptionViewFrame').classList.remove('d-none');
+    getImgfromAssignUser(element);
+}
+
+function getImgfromAssignUser(element){
+    
+    document.getElementById('assignUserImg').innerHTML = ``;
+
+    for (let i = 0; i < allTasks[element]['user'].length; i++) {
+        let userImg = allTasks[element]['user'][i]['img'];
+        document.getElementById('assignUserImg').innerHTML += `
+            <div class="col-md-2">
+                <img src="${userImg}" class="img-fluid rounded-start descriptionViewImage"
+                alt="Image of User">
+            </div>
+        `;
+        
+    }
 }
 
 function hideCard(){
