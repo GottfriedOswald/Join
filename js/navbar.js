@@ -1,12 +1,12 @@
 function showMenu() {
-    document.getElementById('overlay').classList.remove('d-none');
+    document.getElementById('overlay-menu').classList.remove('d-none');
     document.getElementById('overlay-menu').classList.remove('hide-menu');
     document.getElementById('overlay-menu').classList.add('show-menu');
 
 }
 
 function hideMenu() {
-    document.getElementById('overlay').classList.add('d-none');
+    document.getElementById('overlay-menu').classList.add('d-none');
     document.getElementById('overlay-menu').classList.remove('show-menu');
     document.getElementById('overlay-menu').classList.add('hide-menu');
 }
