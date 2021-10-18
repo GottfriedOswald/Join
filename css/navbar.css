@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 :root {
     /* --bg1: #1E3190; */
     --bg1: rgba(39, 53, 133, 1);
@@ -50,6 +54,7 @@
     border-radius: 50%;
     cursor: pointer;
 }
+
 
 /* Optimazition for mobile device display 900px */
 

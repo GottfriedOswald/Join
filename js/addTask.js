@@ -92,7 +92,9 @@ function addTask(event) {
     saveToBackend();
     clearInputfields();
     today();
+    showUsers();
     openPopUp();
+
 }
 
 function clearInputfields() {
