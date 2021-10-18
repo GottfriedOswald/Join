@@ -129,8 +129,9 @@ function showCard(element){
     document.getElementById('card-text-deadline').innerHTML = allTasks[element]['createdAt'];
     document.getElementById('card-text-urgency').innerHTML = `urgency: `+allTasks[element]['urgency'];
     document.getElementById('descriptionViewFrame').classList.remove('d-none');
-    document.getElementById('descriptionViewFrame').classList.add('animate');
+    document.getElementById('descriptionViewFrame').classList.add('animateFadeIn');
     getImgfromAssignUser(element);
+    setTimeout(function(){document.getElementById('descriptionViewFrame').classList.remove('animateFadeIn');},500);
 }
 
 function getImgfromAssignUser(element){
@@ -150,7 +151,10 @@ function getImgfromAssignUser(element){
 }
 
 function hideCard(){
-    document.getElementById('descriptionViewFrame').classList.add('d-none');
+    document.getElementById('descriptionViewFrame').classList.add('animateFadeOut');
+    setTimeout(function(){document.getElementById('descriptionViewFrame').classList.add('d-none');},250);
+    
+    setTimeout(function(){document.getElementById('descriptionViewFrame').classList.remove('animateFadeOut');},300);
 }
 
 

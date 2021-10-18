@@ -20,9 +20,21 @@
         opacity: 1;
     }
 }
+@keyframes fadeOut {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
 
-.animate{
+.animateFadeIn{
     animation: 0.3s fadeIn ease-in-out;
+}
+
+.animateFadeOut{
+    animation: 0.3s fadeOut ease-in-out;
 }
 
 
