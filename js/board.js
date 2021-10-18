@@ -28,13 +28,11 @@ async function loadFromBackend() {
 let currentDraggedElement;
 
 /**
- * This function updates the HTML page
+ * This function updates the HTML page if you move, add or delete task card
  * 
  * @param {} - no parameter needed
  */
 function uptadeHTML() {
-
-  
 
     let todo = allTasks.filter(t => t['status'] == 'todo');
     document.getElementById('task1').innerHTML = ``;
@@ -65,11 +63,7 @@ function uptadeHTML() {
     }
 }
 
-/**
- * 
- * 
- * @param {number} id - This ist the ID from the Task
- */
+
 function startDragging(id) {
     currentDraggedElement = id;
 }
@@ -80,7 +74,6 @@ function allowDrop(ev) {
 
 function moveTo(status) {
     allTasks[currentDraggedElement]['status'] = status;
-    // uptadeHTML();
     saveToBackend();
 }
 
@@ -93,43 +86,105 @@ function removeHighlight(id) {
 }
 
 function deleteTask(id) {
-    console.log('vor löschen', allTasks);
     allTasks.splice(id, 1);
-    console.log('nach löschen', allTasks);
     setID();
-    console.log('nach id setzen', allTasks);
     saveToBackend();
-    console.log('nach backend speichern', allTasks);
     uptadeHTML();
-    console.log('nach html update', allTasks);
 }
 
-
+/**
+ * this function creates a task card
+ * 
+ * @param {*} element - element a special element(task) in an array
+ */
 function generateTodoHTML(element) {
     return `
-    
-        <div class="task flex-column ${getBorderColor(element)}" draggable="true" ondragstart="startDragging(${element['id']})">
-            <div class="text-bg fontsize">${setNameToTask(element)}</div>
-            <div class="flex center space-between">
-                <span>${element['titel']}</span>
-                <img src="img/trash-icon.png" alt="trash icon" class="trashIcon" onclick="deleteTask(${element['id']})">
+    <div class="flex">
+        
+            <div class="task flex space-between ${getBorderColor(element)}" draggable="true" ondragstart="startDragging(${element['id']})" onclick="showCard(${element['id']})">
+                <div>
+                    <div class="text-bg fontsize">${setNameToTask(element)}</div>
+
+                    <div class="flex center space-between">
+                        <span>${element['titel']}</span>
+                    </div>
+
+                    <div class="text-bg fontsize">${element['createdAt']}</div>
+                </div>
+
+                <div class="flex center task-trash">
+                    <img src="img/trash-icon.png" alt="trash icon" class="trashIcon" onclick="deleteTask(${element['id']})">
+                </div>
+
             </div>
-            <div class="text-bg fontsize">${element['createdAt']}</div>
-        </div>
-    
-    
+            
+    </div>
     `;
 }
+
+
 /**
- * the function checks whether "name" exists
+ * this function shows an enlarged view of a task card
+ * 
+ * @param {*} element - element a special element(task) in an array
+ */
+function showCard(element){
+    document.getElementById('card-category').innerHTML = allTasks[element]['category'];
+    document.getElementById('card-title').innerHTML = allTasks[element]['titel'];
+    document.getElementById('card-text-description').innerHTML = allTasks[element]['description'];
+    document.getElementById('card-text-deadline').innerHTML = allTasks[element]['createdAt'];
+    document.getElementById('card-text-urgency').innerHTML = `urgency: `+allTasks[element]['urgency'];
+    document.getElementById('descriptionViewFrame').classList.remove('d-none');
+    document.getElementById('descriptionViewFrame').classList.add('animateFadeIn');
+    getImgfromAssignUser(element);
+    setTimeout(function(){document.getElementById('descriptionViewFrame').classList.remove('animateFadeIn');},500);
+}
+
+
+/**
+ * this function adds the images of the users in a large view
+ * 
+ * @param {*} element - element a special element(task) in an array
+ */
+function getImgfromAssignUser(element){
+    
+    document.getElementById('assignUserImg').innerHTML = ``;
+
+    for (let i = 0; i < allTasks[element]['user'].length; i++) {
+        let userImg = allTasks[element]['user'][i]['img'];
+        document.getElementById('assignUserImg').innerHTML += `
+            <div class="col-md-2">
+                <img src="${userImg}" class="img-fluid rounded-start descriptionViewImage"
+                alt="Image of User">
+            </div>
+        `;
+        
+    }
+}
+
+/**
+ * this function hides the large view
+ * 
+ * @param {} - no parameter needed 
+ */
+function hideCard(){
+    document.getElementById('descriptionViewFrame').classList.add('animateFadeOut');
+    setTimeout(function(){document.getElementById('descriptionViewFrame').classList.add('d-none');},250);
+    
+    setTimeout(function(){document.getElementById('descriptionViewFrame').classList.remove('animateFadeOut');},300);
+}
+
+
+/**
+ * this function checks whether "name" exists
  * 
  * @param {*} element element a special element(task) in an array
  * @returns name of the employee
  */
 function setNameToTask(element) {
     let name;
-    if (element['name']) {
-        name = element['name'];
+    if (element['user']) {
+        name = element['user'][0]['name'];
     } else {
         name = "unknown";
     }
@@ -137,7 +192,7 @@ function setNameToTask(element) {
 }
 
 /**
-   * This function saves the Array to backend
+   * this function saves the Array to backend
    * 
    * @param {} - no parameter needed
    */
@@ -162,6 +217,11 @@ function getBorderColor(element) {
         return 'urgency-high';
 }
 
+/**
+ * this function inserts the profile picture of the current user into the navbar
+ * 
+ * @param {}  - no parameter needed
+ */
 function currentProfil() {
     let profilIcon = document.getElementById('profil-picture');
     profilIcon.src = currentUser[0].img;
