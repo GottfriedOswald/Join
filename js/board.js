@@ -171,11 +171,6 @@ function getImgfromAssignUser(element) {
 }
 
 /**
- *  class="col-md-2"
- * img-fluid rounded-start 
- */
-
-/**
  * this function hides the large view
  * 
  * @param {} - no parameter needed 
