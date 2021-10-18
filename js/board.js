@@ -78,7 +78,6 @@ function allowDrop(ev) {
 
 function moveTo(status) {
     allTasks[currentDraggedElement]['status'] = status;
-    // uptadeHTML();
     saveToBackend();
 }
 
@@ -91,15 +90,10 @@ function removeHighlight(id) {
 }
 
 function deleteTask(id) {
-    // console.log('vor löschen', allTasks);
     allTasks.splice(id, 1);
-    // console.log('nach löschen', allTasks);
     setID();
-    // console.log('nach id setzen', allTasks);
     saveToBackend();
-    // console.log('nach backend speichern', allTasks);
     uptadeHTML();
-    // console.log('nach html update', allTasks);
 }
 
 
@@ -135,6 +129,7 @@ function showCard(element){
     document.getElementById('card-text-deadline').innerHTML = allTasks[element]['createdAt'];
     document.getElementById('card-text-urgency').innerHTML = `urgency: `+allTasks[element]['urgency'];
     document.getElementById('descriptionViewFrame').classList.remove('d-none');
+    document.getElementById('descriptionViewFrame').classList.add('animate');
     getImgfromAssignUser(element);
 }
 
