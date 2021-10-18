@@ -191,10 +191,15 @@ body {
     border-radius: 8px;
 }
 
+.descriptionViewImageFrame{
+    display: flex;
+    margin: 3px 8px;
+}
+
 .descriptionViewImage{
-    /* width: 150px; */
-    border-radius: 48px;
-    padding: 8px 16px;
+    height: 70px;
+    border-radius: 8px;
+    object-fit: contain;
 }
 
 .d-none{

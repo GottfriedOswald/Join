@@ -153,14 +153,19 @@ function getImgfromAssignUser(element){
     for (let i = 0; i < allTasks[element]['user'].length; i++) {
         let userImg = allTasks[element]['user'][i]['img'];
         document.getElementById('assignUserImg').innerHTML += `
-            <div class="col-md-2">
-                <img src="${userImg}" class="img-fluid rounded-start descriptionViewImage"
+            <div class="descriptionViewImageFrame">
+                <img src="${userImg}" class="descriptionViewImage"
                 alt="Image of User">
             </div>
         `;
         
     }
 }
+
+/**
+ *  class="col-md-2"
+ * img-fluid rounded-start 
+ */
 
 /**
  * this function hides the large view
