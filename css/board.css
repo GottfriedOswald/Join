@@ -1,6 +1,7 @@
 :root {
     --bg1: rgba(28, 45, 146, 0.75);
 }
+
 * {
     box-sizing: border-box;
 }
@@ -13,30 +14,30 @@
 }
 
 @keyframes fadeIn {
-    from{
+    from {
         opacity: 0;
     }
-    to{
+    to {
         opacity: 1;
     }
 }
+
 @keyframes fadeOut {
-    from{
+    from {
         opacity: 1;
     }
-    to{
+    to {
         opacity: 0;
     }
 }
 
-.animateFadeIn{
+.animateFadeIn {
     animation: 0.3s fadeIn ease-in-out;
 }
 
-.animateFadeOut{
+.animateFadeOut {
     animation: 0.3s fadeOut ease-in-out;
 }
-
 
 body {
     font-family: "PT Sans", sans-serif !important;
@@ -61,17 +62,17 @@ body {
     align-items: center;
 }
 
-.space-between{
+.space-between {
     justify-content: space-between;
 }
 
-.text-bg{
+.text-bg {
     background-color: rgba(0, 0, 0, 0.08);
     border-radius: 5px;
     padding-left: 8px;
 }
 
-.fontsize{
+.fontsize {
     font-size: 0.8rem;
 }
 
@@ -114,15 +115,15 @@ body {
     border-radius: 8px 8px 0 0;
 }
 
-.urgency-low{
+.urgency-low {
     border-top: 5px solid green;
 }
 
-.urgency-middle{
+.urgency-middle {
     border-top: 5px solid orange;
 }
 
-.urgency-high{
+.urgency-high {
     border-top: 5px solid red;
 }
 
@@ -173,7 +174,7 @@ body {
     align-items: center;
 }
 
-.descriptionViewFrame{
+.descriptionViewFrame {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -187,21 +188,27 @@ body {
     align-items: center;
 }
 
-.descriptionView{
+.descriptionView {
     border-radius: 8px;
 }
 
-.descriptionViewImageFrame{
+.descriptionViewImageFrame {
     display: flex;
     margin: 3px 8px;
 }
 
-.descriptionViewImage{
+.descriptionViewImage {
     height: 70px;
     border-radius: 8px;
     object-fit: contain;
 }
 
-.d-none{
+.d-none {
     display: none;
+}
+
+@media(max-width: 550px) {
+    .taskboard {
+        left: 105px;
+    }
 }

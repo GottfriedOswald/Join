@@ -12,14 +12,14 @@
     <script src="../js/navbar.js"></script>
 </head>
 
-<body>
+<body onload="currentProfil(), overlayMenuProfil()">
 
     <div class="flex-row">
         <div class="menu">
-            <img onclick="hideMenu()" id="menu-icon" class="menu-icon" src="../img/menu.png">
+            <img onclick="openMenu()" id="menu-icon" class="menu-icon" src="../img/menu.png">
         </div>
 
-        <div id="menu" class="side-vertical-navbar flex-column">
+        <div class="side-vertical-navbar flex-column">
 
             <div class="logo">
                 <img src="img/logo.png" alt="">
@@ -27,35 +27,73 @@
 
             <div class="links flex-column">
                 <div class="link-box">
-                    <a href="board.html">Board   </a>
-                    <a href="board.html"><img class="navbar-icon" src="../img/board.png"></a>
+                    <a class="text-link" href="board.html">Board   </a>
+                    <a title="Board" href="board.html"><img class="navbar-icon" src="../img/board.png"></a>
                 </div>
 
                 <div class="link-box">
-                    <a href="backlog.html">Backlog </a>
-                    <a href="backlog.html"></a><img class="navbar-icon" src="../img/backlog.png"></a>
+                    <a class="text-link" href="backlog.html">Backlog </a>
+                    <a title="Backlog" href="backlog.html"><img class="navbar-icon" src="../img/backlog.png"></a>
                 </div>
 
                 <div class="link-box">
-                    <a href="addTask.html">add Task </a>
-                    <a href="addTask.html"><img class="navbar-icon" src="../img/add.png"></a>
+                    <a class="text-link" href="addTask.html">add Task </a>
+                    <a title="add Task" href="addTask.html"><img class="navbar-icon" src="../img/add.png"></a>
                 </div>
 
                 <div class="link-box">
-                    <a href="help.html">Help </a>
-                    <a href="help.html"><img class="navbar-icon" src="../img/help.png"></a>
+                    <a class="text-link" href="help.html">Help </a>
+                    <a title="Help" href="help.html"><img class="navbar-icon" src="../img/help.png"></a>
                 </div>
 
-
-
-                <!-- <a href="contact.html">Contact</a> -->
-
-                <!-- <a href="index.html">Start</a> -->
             </div>
+
 
             <div class="join-bar-footer">
                 <div id="profil-bar" class="profil-bar">
                     <img id="profil-picture" src="./img/user/guest.png">
+                    <a href="./login.html">Logout</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="overlay">
+
+        <div id="overlay-menu" class="side-vertical-navbar2 flex-column2">
+
+            <div class="logo2">
+                <img src="img/logo.png" alt="">
+            </div>
+
+            <div class="links2 flex-column2">
+                <div class="link-box2">
+                    <a class="text-link2" href="board.html">Board   </a>
+                    <a href="board.html"><img class="navbar-icon2" src="../img/board.png"></a>
+                </div>
+
+                <div class="link-box2">
+                    <a class="text-link2" href="backlog.html">Backlog </a>
+                    <a href="backlog.html"><img class="navbar-icon2" src="../img/backlog.png"></a>
+                </div>
+
+                <div class="link-box2">
+                    <a class="text-link2" href="addTask.html">add Task </a>
+                    <a href="addTask.html"><img class="navbar-icon2" src="../img/add.png"></a>
+                </div>
+
+                <div class="link-box2">
+                    <a class="text-link2" href="help.html">Help </a>
+                    <a href="help.html"><img class="navbar-icon2" src="../img/help.png"></a>
+                </div>
+
+            </div>
+
+            <div class="join-bar-footer2">
+                <div id="profil-bar2" class="profil-bar2">
+                    <img id="profil-picture2" src="./img/user/guest.png">
                     <a href="./login.html">Logout</a>
                 </div>
             </div>

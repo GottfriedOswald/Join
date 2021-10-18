@@ -1,13 +1,12 @@
-
 let allTasks = [];
 let currentUser = [];
 
 
 /**
-   * this function sets the ids in ascending order
-   * 
-   * @param {} - no parameter needed
-   */
+ * this function sets the ids in ascending order
+ * 
+ * @param {} - no parameter needed
+ */
 function setID() {
     for (let i = 0; i < allTasks.length; i++) {
         allTasks[i]['id'] = i;
@@ -22,7 +21,7 @@ async function loadFromBackend() {
     setID();
     uptadeHTML();
     currentProfil()
-    // console.log('hope it works', allTasks);
+        // console.log('hope it works', allTasks);
 }
 
 let currentDraggedElement;
@@ -128,22 +127,22 @@ function generateTodoHTML(element) {
  * 
  * @param {*} element - element a special element(task) in an array
  */
-function showCard(element){
+function showCard(element) {
     removeBorderColor();
     let bordercolortop = getBorderColor(element);
     document.getElementById('card-category').innerHTML = allTasks[element]['category'];
     document.getElementById('card-title').innerHTML = allTasks[element]['titel'];
     document.getElementById('card-text-description').innerHTML = allTasks[element]['description'];
     document.getElementById('card-text-deadline').innerHTML = allTasks[element]['createdAt'];
-    document.getElementById('card-text-urgency').innerHTML = `urgency: `+allTasks[element]['urgency'];
+    document.getElementById('card-text-urgency').innerHTML = `urgency: ` + allTasks[element]['urgency'];
     document.getElementById('descriptionView').classList.add(bordercolortop);
     document.getElementById('descriptionViewFrame').classList.remove('d-none');
     document.getElementById('descriptionViewFrame').classList.add('animateFadeIn');
     getImgfromAssignUser(element);
-    setTimeout(function(){document.getElementById('descriptionViewFrame').classList.remove('animateFadeIn');},500);
+    setTimeout(function() { document.getElementById('descriptionViewFrame').classList.remove('animateFadeIn'); }, 500);
 }
 
-function removeBorderColor(){
+function removeBorderColor() {
     document.getElementById('descriptionView').classList.remove('urgency-low');
     document.getElementById('descriptionView').classList.remove('urgency-high');
     document.getElementById('descriptionView').classList.remove('urgency-middle');
@@ -155,8 +154,8 @@ function removeBorderColor(){
  * 
  * @param {*} element - element a special element(task) in an array
  */
-function getImgfromAssignUser(element){
-    
+function getImgfromAssignUser(element) {
+
     document.getElementById('assignUserImg').innerHTML = ``;
 
     for (let i = 0; i < allTasks[element]['user'].length; i++) {
@@ -167,7 +166,7 @@ function getImgfromAssignUser(element){
                 alt="Image of User">
             </div>
         `;
-        
+
     }
 }
 
@@ -181,11 +180,11 @@ function getImgfromAssignUser(element){
  * 
  * @param {} - no parameter needed 
  */
-function hideCard(){
+function hideCard() {
     document.getElementById('descriptionViewFrame').classList.add('animateFadeOut');
-    setTimeout(function(){document.getElementById('descriptionViewFrame').classList.add('d-none');},250);
-    
-    setTimeout(function(){document.getElementById('descriptionViewFrame').classList.remove('animateFadeOut');},300);
+    setTimeout(function() { document.getElementById('descriptionViewFrame').classList.add('d-none'); }, 250);
+
+    setTimeout(function() { document.getElementById('descriptionViewFrame').classList.remove('animateFadeOut'); }, 300);
 
     removeBorderColor();
 }
@@ -208,10 +207,10 @@ function setNameToTask(element) {
 }
 
 /**
-   * this function saves the Array to backend
-   * 
-   * @param {} - no parameter needed
-   */
+ * this function saves the Array to backend
+ * 
+ * @param {} - no parameter needed
+ */
 async function saveToBackend() {
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     console.log('saved to backend');
@@ -241,5 +240,4 @@ function getBorderColor(element) {
 function currentProfil() {
     let profilIcon = document.getElementById('profil-picture');
     profilIcon.src = currentUser[0].img;
- }
-
+}
