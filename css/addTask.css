@@ -14,8 +14,6 @@ html {
 /* Pop Up Section */
 
 .pop-up-add-task {
-    background-color: rgba(0, 0, 0, 0.2);
-    z-index: 999;
     position: fixed;
     left: 0;
     right: 0;
