@@ -20,7 +20,7 @@ async function loadFromBackend() {
     console.log('Loaded from backend allTasks', allTasks);
     setID();
     uptadeHTML();
-    currentProfil()
+    currentProfil();
         // console.log('hope it works', allTasks);
 }
 
@@ -97,12 +97,13 @@ function deleteTask(id) {
  * @param {*} element - element a special element(task) in an array
  */
 function generateTodoHTML(element) {
+    let workingOnTaskUser = checkAmountAssignUser(element);
     return `
     <div class="flex">
         
             <div class="task flex space-between ${getBorderColor(element)}" draggable="true" ondragstart="startDragging(${element['id']})" onclick="showCard(${element['id']})">
                 <div>
-                    <div class="text-bg fontsize">${setNameToTask(element)}</div>
+                    <div class="text-bg fontsize">${setNameToTask(element)} <span id="amountAssignUser">${workingOnTaskUser}</span></div>
 
                     <div class="flex center space-between">
                         <span>${element['titel']}</span>
@@ -119,6 +120,21 @@ function generateTodoHTML(element) {
             
     </div>
     `;
+}
+
+/**
+ * this function determines the number of further assigned users and returns it as a string
+ * 
+ * @param {*} element - element a special element(task) in an array
+ */
+function checkAmountAssignUser(element){
+    let amountUser = element.user.length;
+    if (amountUser < 2) {
+        amountUser = ``;
+    }else{
+        amountUser = `+`+ (amountUser-1).toString();
+    }
+    return amountUser;
 }
 
 
