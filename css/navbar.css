@@ -11,6 +11,10 @@ body {
     --bg1: rgba(39, 53, 133, 1);
 }
 
+.d-none {
+    display: none;
+}
+
 .menu-icon {
     display: none;
     position: absolute;
