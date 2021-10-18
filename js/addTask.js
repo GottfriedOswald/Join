@@ -163,12 +163,28 @@ function assignToTask(i) {
 
 
 //Function for open and close Pop Up when Task is done
+function generatePopUp() {
+
+    document.getElementById('pop-up').innerHTML += `
+    <div class="pop-up">
+    <div class="close">
+        <img onclick="closePopUp()" class="close-icon" src="./img/close.png" alt=""></div>
+    <div class="pop-up-content">
+        Ihre Aufgabe wurde erstellt und dem Board hinzugefügt!</div>
+    </div>
+    `;
+}
+
+
 function closePopUp() {
     document.getElementById('pop-up').classList.add('d-none');
 }
 
 function openPopUp() {
+    generatePopUp();
+
     document.getElementById('pop-up').classList.remove('d-none');
+    setTimeout(function() { document.getElementById('pop-up').classList.add('d-none'); }, 1500);
 }
 
 
