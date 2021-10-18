@@ -28,7 +28,7 @@ async function loadFromBackend() {
 let currentDraggedElement;
 
 /**
- * This function updates the HTML page
+ * This function updates the HTML page if you move, add or delete task card
  * 
  * @param {} - no parameter needed
  */
@@ -63,11 +63,7 @@ function uptadeHTML() {
     }
 }
 
-/**
- * 
- * 
- * @param {number} id - This ist the ID from the Task
- */
+
 function startDragging(id) {
     currentDraggedElement = id;
 }
@@ -96,7 +92,11 @@ function deleteTask(id) {
     uptadeHTML();
 }
 
-
+/**
+ * this function creates a task card
+ * 
+ * @param {*} element - element a special element(task) in an array
+ */
 function generateTodoHTML(element) {
     return `
     <div class="flex">
@@ -122,6 +122,12 @@ function generateTodoHTML(element) {
     `;
 }
 
+
+/**
+ * this function shows an enlarged view of a task card
+ * 
+ * @param {*} element - element a special element(task) in an array
+ */
 function showCard(element){
     document.getElementById('card-category').innerHTML = allTasks[element]['category'];
     document.getElementById('card-title').innerHTML = allTasks[element]['titel'];
@@ -134,6 +140,12 @@ function showCard(element){
     setTimeout(function(){document.getElementById('descriptionViewFrame').classList.remove('animateFadeIn');},500);
 }
 
+
+/**
+ * this function adds the images of the users in a large view
+ * 
+ * @param {*} element - element a special element(task) in an array
+ */
 function getImgfromAssignUser(element){
     
     document.getElementById('assignUserImg').innerHTML = ``;
@@ -150,6 +162,11 @@ function getImgfromAssignUser(element){
     }
 }
 
+/**
+ * this function hides the large view
+ * 
+ * @param {} - no parameter needed 
+ */
 function hideCard(){
     document.getElementById('descriptionViewFrame').classList.add('animateFadeOut');
     setTimeout(function(){document.getElementById('descriptionViewFrame').classList.add('d-none');},250);
@@ -159,7 +176,7 @@ function hideCard(){
 
 
 /**
- * the function checks whether "name" exists
+ * this function checks whether "name" exists
  * 
  * @param {*} element element a special element(task) in an array
  * @returns name of the employee
@@ -175,7 +192,7 @@ function setNameToTask(element) {
 }
 
 /**
-   * This function saves the Array to backend
+   * this function saves the Array to backend
    * 
    * @param {} - no parameter needed
    */
@@ -200,6 +217,11 @@ function getBorderColor(element) {
         return 'urgency-high';
 }
 
+/**
+ * this function inserts the profile picture of the current user into the navbar
+ * 
+ * @param {}  - no parameter needed
+ */
 function currentProfil() {
     let profilIcon = document.getElementById('profil-picture');
     profilIcon.src = currentUser[0].img;
