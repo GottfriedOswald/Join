@@ -6,7 +6,7 @@ function showMenu() {
 }
 
 function hideMenu() {
-    document.getElementById('overlay').classList.remove('d-none');
+    document.getElementById('overlay').classList.add('d-none');
     document.getElementById('overlay-menu').classList.remove('show-menu');
     document.getElementById('overlay-menu').classList.add('hide-menu');
 }
