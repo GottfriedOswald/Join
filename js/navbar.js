@@ -24,3 +24,8 @@ function currentProfil() {
     let profilIcon = document.getElementById('profil-picture');
     profilIcon.src = currentUser[0].img;
 }
+
+function overlayMenuProfil() {
+    let profilIconOverlay = document.getElementById('profil-picture2');
+    profilIconOverlay.src = currentUser[0].img;
+}
