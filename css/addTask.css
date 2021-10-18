@@ -56,6 +56,37 @@ html {
     font-weight: bold;
 }
 
+.alert-box {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert {
+    height: 200px;
+    width: 500px;
+    background-color: rgba(243, 130, 130, 0.705);
+    margin-left: 250px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.alert-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+}
+
 
 /* Add Task Container */
 

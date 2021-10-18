@@ -61,6 +61,7 @@ async function loadFromBackend() {
 }
 
 function addTask(event) {
+    let alertBox = document.getElementById('alert-box');
     event.preventDefault();
     let id = Math.round(Math.random() * 10000);
     let titel = document.getElementById('titel').value;
@@ -88,14 +89,20 @@ function addTask(event) {
         'user': assignUser
     }
 
-    allTasks.push(task); //push new task to Array allTasks
-    saveToBackend();
-    clearInputfields();
-    today();
-    showUsers();
-    openPopUp();
+    if (assignUser == '') {
+        alertBox.classList.remove('d-none');
+        setTimeout(function() { alertBox.classList.add('d-none'); }, 1500);
+    } else {
+        allTasks.push(task); //push new task to Array allTasks
+        saveToBackend();
+        clearInputfields();
+        today();
+        showUsers();
+        openPopUp();
+    }
 
 }
+
 
 function clearInputfields() {
     document.getElementById('titel').value = '';
@@ -192,4 +199,3 @@ function currentProfil() {
     let profilIcon = document.getElementById('profil-picture');
     profilIcon.src = currentUser[0].img;
 }
-
