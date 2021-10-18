@@ -90,6 +90,7 @@ function addTask(event) {
     }
 
     if (assignUser == '') {
+        generateAlert();
         alertBox.classList.remove('d-none');
         setTimeout(function() { alertBox.classList.add('d-none'); }, 1500);
     } else {
@@ -102,6 +103,19 @@ function addTask(event) {
     }
 
 }
+
+function generateAlert() {
+
+    document.getElementById('alert-box').innerHTML += `
+    <div class="alert">
+
+    <div class="alert-content">
+        Bitte wähle einen User aus!</div>
+
+</div>
+    `;
+}
+
 
 
 function clearInputfields() {
