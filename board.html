@@ -9,9 +9,12 @@
     <link rel="stylesheet" href="./css/board.css">
 
     <script src="./js/mini_backend.js"></script>
-    <script>setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');</script>
+    <script>
+        setURL('http://gruppe-107.developerakademie.net/smallest_backend_ever');
+    </script>
     <script src="./js/includeHTML.js"></script>
     <script src="./js/board.js"></script>
+    <script src="../js/navbar.js"></script>
     <title>JoinBoard</title>
 </head>
 
@@ -19,25 +22,19 @@
     <div w3-include-html="templates/navbar.html"></div>
     <section class="taskboard">
         <div class="contentframe">
-            <div class="task-area" id="todo" ondrop="moveTo('todo'); removeHighlight('todo')"
-                ondragleave="removeHighlight('todo')" ondragover="allowDrop(event); highlight('todo')">
+            <div class="task-area" id="todo" ondrop="moveTo('todo'); removeHighlight('todo')" ondragleave="removeHighlight('todo')" ondragover="allowDrop(event); highlight('todo')">
                 <div class="task-header">zu erledigen</div>
                 <div id="task1"></div>
             </div>
-            <div class="task-area" id="in-progress" ondrop="moveTo('in-progress'); removeHighlight('in-progress')"
-                ondragleave="removeHighlight('in-progress')" ondragover="allowDrop(event); highlight('in-progress')">
+            <div class="task-area" id="in-progress" ondrop="moveTo('in-progress'); removeHighlight('in-progress')" ondragleave="removeHighlight('in-progress')" ondragover="allowDrop(event); highlight('in-progress')">
                 <div class="task-header">in Arbeit</div>
                 <div id="task2"></div>
             </div>
-            <div class="task-area" id="in-examination"
-                ondrop="moveTo('in-examination'); removeHighlight('in-examination')"
-                ondragleave="removeHighlight('in-examination')"
-                ondragover="allowDrop(event); highlight('in-examination')">
+            <div class="task-area" id="in-examination" ondrop="moveTo('in-examination'); removeHighlight('in-examination')" ondragleave="removeHighlight('in-examination')" ondragover="allowDrop(event); highlight('in-examination')">
                 <div class="task-header">in Prüfung</div>
                 <div id="task3"></div>
             </div>
-            <div class="task-area" id="done" ondrop="moveTo('done'); removeHighlight('done')"
-                ondragleave="removeHighlight('done')" ondragover="allowDrop(event); highlight('done')">
+            <div class="task-area" id="done" ondrop="moveTo('done'); removeHighlight('done')" ondragleave="removeHighlight('done')" ondragover="allowDrop(event); highlight('done')">
                 <div class="task-header">Erledigt</div>
                 <div id="task4"></div>
             </div>
@@ -46,7 +43,7 @@
 
     <section class="descriptionViewFrame d-none" id="descriptionViewFrame" onclick="hideCard()">
         <div class="descriptionView flex center" id="descriptionView">
- 
+
             <div class="card mb-3" style="min-width: 400px;max-width: 450px;">
                 <div>
                     <div class="descriptionViewImageFrame" id="assignUserImg"></div>
@@ -54,13 +51,11 @@
                         <div class="card-body">
                             <h4 class="card-title" id="card-category">Beispieltext 1</h4>
                             <h5 class="card-title" id="card-title">Beispieltext 2</h5>
-                            <p class="card-text" id="card-text-description">Beispieltext Beispieltext Beispieltext
-                                Beispieltext Beispieltext Beispieltext </p>
+                            <p class="card-text" id="card-text-description">Beispieltext Beispieltext Beispieltext Beispieltext Beispieltext Beispieltext </p>
                             <div class="flex space-between">
                                 <p class="card-text" id="card-text-deadline"><small class="text-muted">deadline</small>
                                 </p>
-                                <p class="card-text" id="card-text-urgency"><small
-                                        class="text-muted">dringlichkeit</small></p>
+                                <p class="card-text" id="card-text-urgency"><small class="text-muted">dringlichkeit</small></p>
                             </div>
                         </div>
                     </div>

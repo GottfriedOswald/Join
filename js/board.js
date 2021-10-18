@@ -127,30 +127,22 @@ function generateTodoHTML(element) {
  * 
  * @param {*} element - element a special element(task) in an array
  */
-<<<<<<< HEAD
 function showCard(element) {
-=======
-function showCard(element){
     removeBorderColor();
     let bordercolortop = getBorderColor(element);
->>>>>>> 08db1f59e06464ae1e3c65daa9e3e7794b33eb06
     document.getElementById('card-category').innerHTML = allTasks[element]['category'];
     document.getElementById('card-title').innerHTML = allTasks[element]['titel'];
     document.getElementById('card-text-description').innerHTML = allTasks[element]['description'];
     document.getElementById('card-text-deadline').innerHTML = allTasks[element]['createdAt'];
-<<<<<<< HEAD
     document.getElementById('card-text-urgency').innerHTML = `urgency: ` + allTasks[element]['urgency'];
-=======
-    document.getElementById('card-text-urgency').innerHTML = `urgency: `+allTasks[element]['urgency'];
     document.getElementById('descriptionView').classList.add(bordercolortop);
->>>>>>> 08db1f59e06464ae1e3c65daa9e3e7794b33eb06
     document.getElementById('descriptionViewFrame').classList.remove('d-none');
     document.getElementById('descriptionViewFrame').classList.add('animateFadeIn');
     getImgfromAssignUser(element);
     setTimeout(function() { document.getElementById('descriptionViewFrame').classList.remove('animateFadeIn'); }, 500);
 }
 
-function removeBorderColor(){
+function removeBorderColor() {
     document.getElementById('descriptionView').classList.remove('urgency-low');
     document.getElementById('descriptionView').classList.remove('urgency-high');
     document.getElementById('descriptionView').classList.remove('urgency-middle');
@@ -190,17 +182,11 @@ function getImgfromAssignUser(element) {
  */
 function hideCard() {
     document.getElementById('descriptionViewFrame').classList.add('animateFadeOut');
-<<<<<<< HEAD
     setTimeout(function() { document.getElementById('descriptionViewFrame').classList.add('d-none'); }, 250);
 
     setTimeout(function() { document.getElementById('descriptionViewFrame').classList.remove('animateFadeOut'); }, 300);
-=======
-    setTimeout(function(){document.getElementById('descriptionViewFrame').classList.add('d-none');},250);
-    
-    setTimeout(function(){document.getElementById('descriptionViewFrame').classList.remove('animateFadeOut');},300);
 
     removeBorderColor();
->>>>>>> 08db1f59e06464ae1e3c65daa9e3e7794b33eb06
 }
 
 
