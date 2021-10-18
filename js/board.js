@@ -129,7 +129,7 @@ function generateTodoHTML(element) {
  */
 function showCard(element) {
     removeBorderColor();
-    let bordercolortop = getBorderColor(element);
+    let bordercolortop = getBorderColor(allTasks[element]);
     document.getElementById('card-category').innerHTML = allTasks[element]['category'];
     document.getElementById('card-title').innerHTML = allTasks[element]['titel'];
     document.getElementById('card-text-description').innerHTML = allTasks[element]['description'];
