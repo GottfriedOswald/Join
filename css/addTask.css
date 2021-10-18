@@ -27,7 +27,7 @@ html {
 .pop-up {
     height: 200px;
     width: 500px;
-    background-color: white;
+    background-color: rgba(89, 211, 120, 0.733);
     margin-left: 250px;
     border-radius: 10px;
     display: flex;
