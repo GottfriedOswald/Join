@@ -9,15 +9,15 @@ function hideMenu() {
     document.getElementById('overlay-menu').classList.add('hide-menu');
 }
 
-function openMenu() {
-    navbar = document.getElementById('overlay-menu');
+// function openMenu() {
+//     navbar = document.getElementById('overlay-menu');
 
-    if (navbar.classList.contains("hide-menu")) {
-        showMenu();
-    } else {
-        hideMenu();
-    }
-}
+//     if (navbar.classList.contains("hide-menu")) {
+//         showMenu();
+//     } else {
+//         hideMenu();
+//     }
+// }
 
 
 function currentProfil() {
