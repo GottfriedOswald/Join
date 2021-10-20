@@ -199,8 +199,9 @@ body {
 
 .descriptionViewImage {
     height: 70px;
-    border-radius: 8px;
-    object-fit: contain;
+    width: 70px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .d-none {
